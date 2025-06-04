@@ -14,10 +14,10 @@ All these regions are interconnected with a network called AWS global Network.
 - We then get authorized to access certain resources via the policies.
 
 ### Policies
-Define what resources we are allowed to access, and wha level of access is allowed. All identity and resources created within AWS account. Each account exists in one place and then use measure to access resources across accounts.
+Define what resources we are allowed to access, and what level of access is allowed. All identity and resources created within AWS account. Each account exists in one place and then use measure to access resources across accounts.
 
 ## AWS CloudFront 
-- it’s a content delivery network. This means content (images or videos) can be cached around the world at different locations to make them available with less latency. 
+It’s a content delivery network. This means content (images or videos) can be cached around the world at different locations to make them available with less latency. 
 Working -
 CloudFront Origins -> Regional Edge Caches ->  Edge Locations -> global users 
 
@@ -31,22 +31,24 @@ Allows to deploy resources (virtual servers and databases) with ease.
 ![[image 1.jpg]]
 
 ## AWS Pricing Fundamentals 
-- **Compute** : for cpu and ram changed based on the duration the resources are running. Per minute basis. 
-- **Storage** : based on the quantity of data stored or allocated. Eg. For s3 it’s based on the amount of data stored. For ECB it’s based on amount of space allocated. 
+- **Compute** : For CPU and RAM charged based on the duration the resources are running. Calculated on per minute basis. 
+- **Storage** : Based on the quantity of data stored or allocated. Eg. For s3 it’s based on the amount of data stored. For ECB it’s based on amount of space allocated. 
 - **Outbound Data Transfer** : Quantity of data transferred out of an availability zone or a region. 
 
 ### Pricing models 
-- **pay as you go** : pay what you are using. Allows for elastic needs.
-- **Save when you reserve** : invest in reserved capacity. Allows to save as much as 75 percent compared to pay as you go.
-- **Pay less by using more** : volume based discounts.
+- **Pay as you go** : Pay what you are using. Allows for elastic needs.
+- **Save when you reserve** : Invest in reserved capacity. Allows to save as much as 75 percent compared to pay as you go.
+- **Pay less by using more** : Volume based discounts.
 
 ## AWS Advantages 
 - Trade capital expense for variable expense, that is operational expense.
 - Benefit from massive economies of scale.
-- Stop guessing capacity as elastic.
-- Increase speed and agility. Speed is deploy resources quickly and easily. Agility is ability to react to change quickly. 
+- Stop guessing capacity as capabilities are elastic.
+- Increase speed and agility. Speed is to deploy resources quickly and easily. Agility is ability to react to change quickly. 
 - Stop spending money on maintaining the resources like data centres etc. 
-- Allowed to go global in minutes. 
+- Allows to go global in minutes. 
 
 ## AWS Services 
-[[ Identity and Access Management (IAM)]]
+
+- [[Identity and Access Management (IAM)]]- 
+	- ![[Identity and Access Management (IAM)#Introduction]]
