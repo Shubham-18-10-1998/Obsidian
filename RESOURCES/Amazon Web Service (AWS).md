@@ -51,4 +51,5 @@ Allows to deploy resources (virtual servers and databases) with ease.
 ## AWS Services 
 
 - [[Identity and Access Management (IAM)]]- 
-	- ![[Identity and Access Management (IAM)#Introduction]]
+	- ![[Identity and Access Management (IAM)#Introduction]
+- [[Amazon Elastic Cloud Compute]]

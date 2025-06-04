@@ -3,12 +3,18 @@
 - All IAM principals must be authenticated to send API requests to AWS. 
 - Authentication happens through password to log in.
 - Then authorisation decides if we are allowed/denied access to resources. 
+- Even IAM allows SSO to was services by federating with external idPs.
 ## Principal (AWS - IAM)
 Person or application that can make a request for an action or operation on an AWS resource. 
 ## Policy
 Used to decide what a user or a role which has that policy will have access to. Can be identity based and resource based. 
 ## Identity Centre 
-Allows for single sign on. 
+- Allows for single sign on. 
+- Enables centralised permissions management and SSO.
+- Identity sources can be Identity Centre directory, Active Directory and standard providers using SAML 2.0
+- Can use AD to connect to for example Azure AD or to connect to on Prem Active Directory, use AD connector plugin, or AWS Managed Microsoft AD.
+- Also has built in SSO integration for many business applications like GitHub, Dropbox, Confluence etc.
+- Provides SSO to account parts of an AWS organisation.
 ## Users
 - When we create an AWS account, we provide email for sign up and that creates the root user. The root user has full permissions (admin) and can’t be restricted. Best practice is to not use it and use Multi Factual Authentication.
 - Then users are created, can create up to 5000 users for one account. These have no permissions by default. 
@@ -22,6 +28,9 @@ These are used to add users to them and then apply policies to them. These polic
 - They are used for delegation and are assumed. Essentially each role has permissions assigned to itself, and then you can assume the role to get those permissions. 
 - Each role is an IAM identity that has specific permissions.Using sts:AssumeRole can take a specific role. STS stands for Security Token Service. Essentially we are logging in with certain credentials that have those, and whatever permissions that role has, we then get those. 
 Once assumed, the identity essentially becomes the role and gains the role’s permissions.
+Trusted Entity while creating a role refers to who is able to assume that particular role. 
+A new account created cannot assume role in the starting too, cause it doesn’t have permission.
+So this was we can give access to an account to perform actions to which it doesn’t have access, by temporarily assuming the role when needed.
 ## Policy
 - They define the permissions for the identity or resources they are associated with. 
 - These are documents that define the permissions, and are written in JSON.
