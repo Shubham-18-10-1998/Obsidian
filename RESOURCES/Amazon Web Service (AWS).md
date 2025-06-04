@@ -1,7 +1,7 @@
 ## Global Infrastructure
 - **Regions** - Each region is in a separate Geographic location.
 - **Availability Zones** : Each Region consists of multiple availability zones. Can be 3 or more. Each availability zone has one or more data centre. Each availability zone has public sub-net which is accessible to the public via internet, and private subnet. Each zone has redundant power sources. Redundant Network too between the regions and within them.
-- **AWS Outpost**: You can get a piece of hardware into your own data centre, this have limited capabilities and don’t offer all the services of AWS. These are connected to AWS Regions.
+- **AWS Outpost**: You can get a piece of hardware into your own data centre, this has limited capabilities and doesn’t offer all the services of AWS. These are connected to AWS Regions.
 - **Local Zones**: These are like availability zones. Present in metropolitan areas. Slightly more expensive. Connected to a AWS region.
 - **AWS Wavelength Zone**: offer 5G capability to provide low latency to mobile applications.  Connected to AWS region.
 All these regions are interconnected with a network called AWS global Network.

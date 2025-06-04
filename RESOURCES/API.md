@@ -1,6 +1,7 @@
 API stands for application programming interface. These are set of rules and protocols that allow computer programs to talk to each other. Also assist In sharing data and information between these programs. They use the standard protocols like http. The apis then define specific actions you can request.
 Eg. every action you take on AWS is essentially an API call.
 Say we are connecting to AWS, then browser uses a protocol like HTTP(S). 
+
 ## Protocol 
 Language used to communicate over a network.
 
