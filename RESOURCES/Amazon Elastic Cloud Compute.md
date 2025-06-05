@@ -1,4 +1,4 @@
-It’s essentially virtual servers in cloud, could Windows, Linux, or Mac servers in cloud. It’s the basis for services like Amazon relational database service and Amazon Elastic Cash which run on EC2 instances.
+It’s essentially virtual servers in cloud, could be Windows, Linux, or Mac servers in cloud. It’s the basis for services like Amazon relational database service and Amazon Elastic Cash which run on EC2 instances.
 
 ## Server Virtualisation 
 So a server consists of compute power which is your processor, storage,  RAM, network adapter etc. On top of that we have an OS. On top of that we install our application or service.
