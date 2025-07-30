@@ -12,6 +12,8 @@ The need arises by reducing the repetitive work. For eg. - In max sum in sub-arr
 # Problems
 ## Fixed Size Window :
 Here the condition is the window size, hence we maintain it constantly and try maximising or minimising something within that window.
+### General Format :
+![[Pasted image 20250730084636.png]]
 Problems -
 - [Max Sum Subarray of size K](https://www.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1)
 - [First negative in every window of size k](https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1) : 
@@ -22,8 +24,18 @@ Problems -
 	- Learning: 
 		- 1.) Achieved Success using a priority queue type structure using map<int , vector of int > . This allows insertion, deletion, finding in O(log(n)) complexity. Which made overall complexity O(n*log(n)).  Ideal way is to use priority queue which maintains max heap. Min heap is a special case which can also be implemented.
 		-  2.) Optimal Solution is to use Deque which allows insertion and deletion at both ends of the Queue in constant (O(1)) time. The basis for the solution is that if an element is greater than elements preceding it, then it will be the greatest element in any window which comprises of it and the previous numbers. Hence in deque you elimate (pop_back) all elements while inserting in the queue which are smaller than the element encountered in the current iteration (arr[j]). While shifting the window, the only consideration is if the dq.front() == arr[i]. Now also duplicate same elements will be filled in the dequeue based when they are encountered and hence there is no problem eliminating the front in this way as if there were multiple, then even in the queue there will be multiple.
+-  [Longest Harmonious Subsequence](https://leetcode.com/problems/longest-harmonious-subsequence/)
+	- Learning:
+		- 1.) Since it requires sub-sequence and we can skip the elements in the middle to only include select elements, sorting and re-arranging doesn't break the condition of the question. This approach also allows to use the sliding window approach.
+		- 2.) An alternate is using hash-map to find if the elements with difference 1 are present and then using that approach to find the solution.
+- [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)
+	- Learning:
+		- 1.) Original Approach was to maintain a map where the key-value pair represents element, index. Now if element doesn't exist in the map, insert it or else check if current index minus the value for index is <=k. If it its true return true or else if whole loop is traversed without it becoming true, return false. Here the complexity is O(n x log(n)) as count in cpp has complexity has time complexity of O(log(n)).
+		- 2.) New Approach learnt is that, we can use unordered_set which has constant time complexity for insert, delete count etc functions. This helps bring the complexity to O(n).
 ## Variable Size Window:
 Here the condition isn't the window size, and the point is to maximise or minimise the window size itself, based on a given condition.
+### General Format 
+![[Pasted image 20250730085838.png]]
 Problems-
 - [Longest Substring with K Uniques](https://www.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1)
 	- Learning: The window size is alway moved to increase.Because there are 2 possibilities, if the one added element, which gets it over the limit, causes the one element to be eliminated, and then this is the same window size as before, so we can optimise by moving forward for a larger one. The other is many elements are removed to get k back to equal condition, and then we move on to increase anyway.
