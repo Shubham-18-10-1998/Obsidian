@@ -20,6 +20,8 @@ Here for this string the LPS value is 1 and not 4 as ABCA assumes the A in the m
 	abab -> 2 : here its ab
 	ababd -> 0
 	Hence the LPS array comes out to be {0, 0, 1, 2, 0}
+### Code:
+![[Pasted image 20250731212640.png]]
 
 ## Working of the Algorithm
 - In Case of match s[i] and pat[j], we increase (i++, j++) the pointers
@@ -31,6 +33,10 @@ Here for this string the LPS value is 1 and not 4 as ABCA assumes the A in the m
 The LPS array represents the length of the common prefix suffix. Which means the same prefix and suffix for the substr = pat.substr(o, i). Hence if the element in that index is say x, that means the first x letters of the pat substring and the last x letters are equal. Which also means if a comparison was started from j=0 for the pattern, the first x would match  as they form the suffix for lps[j-1] AND lps[j-1] is also prefix of the pattern which allows to move the j forward by x values for the pattern as they have already been matched.
 
 ![[Pasted image 20250729215901.png]]
+
+## Code for KMP Search
+![[Pasted image 20250731212726.png]]
+
 
 
 

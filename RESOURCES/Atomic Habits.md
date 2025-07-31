@@ -15,7 +15,7 @@ Goals : The results you want to achieve.
 System : The processes you follow to achieve your goals.
 Focusing on the goals doesn't help you achieve them, whereas focussing on the system, puts you in the right direction by putting in the effort to achieve your goals.
 ## Problems with goal oriented approach
-1. Winners and losers have the same goals, which means that goals arent what makes winners, but the systems they had in place that diffrentiated them from the losers, and helped them win and achieve their goals.
-2. 
+1. Winners and losers have the same goals, which means that goals aren't what makes winners, but the systems they had in place that differentiated them from the losers, and helped them win and achieve their goals.
+2. Achieving the goal is only a temporary solution. If we don't fix the system that results in the situation of not achieving the goal, we will end up in the same situation again. Hence the system should be fixed, so we can constantly achieve our goals. eg. - If you have a messy room, even if you get motivated and clean the room which is the goal, its a temporary solution as if we don't fix the system leading to the messy room, we will end up in the same situation again. Hence fix the system rather than trying to achieve the goals, fixing the system which is your input will automatically fix the outcome, which is the goal.
 
 

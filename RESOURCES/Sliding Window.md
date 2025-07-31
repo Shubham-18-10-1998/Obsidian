@@ -13,7 +13,7 @@ The need arises by reducing the repetitive work. For eg. - In max sum in sub-arr
 ## Fixed Size Window :
 Here the condition is the window size, hence we maintain it constantly and try maximising or minimising something within that window.
 ### General Format :
-![[Pasted image 20250730084636.png]]
+![[Pasted image 20250731222239.png]]
 Problems -
 - [Max Sum Subarray of size K](https://www.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1)
 - [First negative in every window of size k](https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1) : 
