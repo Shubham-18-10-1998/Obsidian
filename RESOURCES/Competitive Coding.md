@@ -15,6 +15,8 @@
 		};
 - ## Deque
 	- Used for maintaining queue which is accessible front from and back. Allows insertion at front and back using push_front() and push_back() in O(1) time. Function insert() is for an position.  Function pop_front() and pop_back() is for deleting elements at front and back in O(1) time. The function dq.front() and dq.back() help in accesing elements easily at front and back.
+- ## Vector
+	- If sorting is being used in vector of int, then for descending order, the bool comp(int a, int b) should be a **static** function, so it can be called by the sort function without object instantiation. 
 
 # Algorithms: 
 ## Sliding Window
@@ -22,4 +24,7 @@
 
 ## String Matching
 [[String Matching]]
+
+## Binary Search
+[[Binary Search]]
 
