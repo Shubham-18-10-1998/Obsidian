@@ -38,6 +38,6 @@ If we want to search for an element in an array (number) then we can compare wit
 		- Use the learnings of previous problem to understand how one part is sorted and other isn't, and how that affects the location of the element wrt to others.
 		- Use nums[start] == target and nums[end] == target to find if the element has been found as these are discarded in subsequent iterations.
 		- Alternate Approach : Learnt from video that since we know how to find min. index in rotated array (which is the number of rotations clockwise), on either side we have two sorted arrays on which we can subsequently apply standard Binary Search. 
--[Search in an almost Sorted Array](https://www.geeksforgeeks.org/problems/search-in-an-almost-sorted-array/1)
+- [Search in an almost Sorted Array](https://www.geeksforgeeks.org/problems/search-in-an-almost-sorted-array/1)
 	- Current Thinking:
 		- Compare with the element that ind+1, ind and ind-1, cause all elements aotherwise are sorted to at max a index of (ind+1)%n, and then use modulo function.
