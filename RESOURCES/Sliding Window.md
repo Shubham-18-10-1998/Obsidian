@@ -45,3 +45,5 @@ Problems-
 	- Learning: Used a different variable for count, however, we can also use j-i+1 , which is the window size to reflect the count value.
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 	- Learning: Because of it being a min size window question, you have to work on reducing the window size by moving i forward to see if the condition is still getting satisfied. Also consider where i and j are at the end of iterations and how that will affect the window sizes.
+- [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
+	- Learnings : TypeCasting slows down the code, try avoiding wherever possible to accelerate the code.
