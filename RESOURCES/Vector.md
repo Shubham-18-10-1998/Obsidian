@@ -1,0 +1,1 @@
+If sorting is being used in vector of int, then for descending order, the bool comp(int a, int b) should be a **static** function, so it can be called by the sort function without object instantiation.
