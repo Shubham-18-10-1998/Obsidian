@@ -31,3 +31,9 @@
 ## Two Pointers
 [[Two Pointers]]
 
+## Arrays
+[[Arrays]]
+
+## Dynamic Programming
+[[Dynamic Programming]]
+

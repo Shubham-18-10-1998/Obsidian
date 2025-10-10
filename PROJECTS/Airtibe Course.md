@@ -24,3 +24,12 @@
 	- Teach one engineering concept to someone each week
 	- Choose language. Why is it better than X or worse than Y? Which companies use it and why?
 	- create a blog noting down learnings while doing all of the above.
+
+# [[Docker]]
+
+# [[Java-Backend]]
+
+# [[RoadMap]]
+
+
+
