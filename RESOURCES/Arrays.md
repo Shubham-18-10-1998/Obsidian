@@ -5,3 +5,5 @@
 	- Initial Approach: Use a hash-Map with index and then sort the hash-map. use two pointers to check sum, if greater then reduce back-pointer and if smaller then increase forward-pointer.
 	- Learning : Cant sort hash-map as for sort function in cpp to run, as for sort to work it needs random-access iterator which hash-map (unordered_map) doesn't provide.
 		- Hence Use vector of pair of int and then solve it using the same logic. This also resolves issue of duplicate elements in parent array which would cause issue in unordered_map as there key has to be unique.
+- [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+	- Initial Approach: Sort the array and check adjacent indices for same value
