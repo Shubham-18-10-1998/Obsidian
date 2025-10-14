@@ -4,6 +4,7 @@
 - ## [[Deque]]
 - ## [[Vector]] 
 - ## [[Linked Lists]]
+- ## [[Strings]]
 
 # Algorithms: 
 - ## [[Sliding Window]]
@@ -12,4 +13,5 @@
 - ## [[Two Pointers]]
 - ## [[Arrays]]
 - ## [[Dynamic Programming]]
+- ## [[Number Theory]]
 
