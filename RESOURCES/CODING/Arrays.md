@@ -7,3 +7,5 @@
 		- Hence Use vector of pair of int and then solve it using the same logic. This also resolves issue of duplicate elements in parent array which would cause issue in unordered_map as there key has to be unique.
 - [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 	- Initial Approach: Sort the array and check adjacent indices for same value
+- [Count Hills and Valleys in an Array](https://leetcode.com/problems/count-hills-and-valleys-in-an-array/)
+	- Initial Approach: Use a prevUniq to keep track of prev non-equal element to compare to find occurrence of hill or valley.
