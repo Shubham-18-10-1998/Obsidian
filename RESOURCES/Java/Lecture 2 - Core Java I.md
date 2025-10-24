@@ -38,7 +38,7 @@
 	- Note: Does not include tools like compiler (javac).
 	- If you are only running Java application JRE is enough.
 - **JVM (Java Virtual Machine) ** : 
-	- 3It is the engine (abstract machine) that runs java bytecode. It interprets or just-in-time compiles .class files into machine code for the host OS.
+	- It is the engine (abstract machine) that runs java byte-code. It interprets or just-in-time compiles .class files into machine code for the host OS.
 	- The JVM is platform dependent.
 	- Loads code, verifies code, executes code, manages memory.
 
@@ -59,7 +59,7 @@ When javac file.java done, we generate byte-code which is platform independent.
 However the byte-code -> JVM (which is platform dependent) -> machine code which is run by CPU is run.
 
 ### Why is byte-code (.class) platform independent and JVM platform dependent?
-When we compile the java code we generate .class file (byte-code) which is platform independent. This is sources for Java code portability as this byte-code is platform independent as it only needs a JVM to run on any machine and is same for all.
+When we compile the java code we generate .class file (byte-code) which is platform independent. This is basis for Java code portability as this byte-code is platform independent as it only needs a JVM to run on any machine and is same for all.
 
 Advantage of .class file (byte-code) is portability as the Java code after compiling, which generates the .class file can run on any OS without changes.. It prevent to let the code run wild on system like native code might. It also reduces OS based bugs.
 
@@ -111,7 +111,7 @@ The Reason for this is that JVM loads classes by name which match the filenames.
 	- eg. for(int i=0; i<=5; i++){System.out.println("hello);} : This prints hello 6 times;
 - **While**
 	- while(condition){loop body}
-	- Initialisation done separately and update also has to managed inside unlike for where its stated initially itself
+	- Initialisation done separately and update also has to managed inside unlike "for" where its stated initially itself
 - **do-while**
 	- do{loop body}while(condition)
 	- Executed at-least once;
@@ -119,8 +119,12 @@ The Reason for this is that JVM loads classes by name which match the filenames.
 ## Object Orientated Programming
 
 - Class : Template - they occupy nothing on their own
-	- Constructor: A special function, name same as class name, no return type used to initialise data members of class.
-		- Default : This is the default Java provides on its own;
+	- Constructor: A special function, with name same as class name, and no return type used to initialise data members of class.
+		- Default : This is the default Java provides on its own. Makes all data members to default values.
+			- For non-primitive data types like string or objects its null
+			- for int, short, long, float etc its 0 or 0.0
+			- For boolean its false
+			- Char its unicode null character -> \u0000
 		- Parametrised : What we write. If we provide this, then default constructor is lost. If we still want it, then we have to add on our own.
 		- Copy Constructor : Used to make copy of an object.
 			- This helps avoid shallow copy

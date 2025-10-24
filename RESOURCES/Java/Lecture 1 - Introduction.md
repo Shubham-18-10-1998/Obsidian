@@ -21,13 +21,11 @@ eg.
 - Car, look and feel is front-end, engine, electronics, fuel mechanisms etc is backend.
 
 ## What is back-end?
-Part of application that the user cant interact with directly. All logic for the application is coming under the back-end. Two main segments are DB and Server.
-DB is what holds all the data for the application. 
-Server consist of hosting and the APIs.
-
-eg. in restaurant, the waiter is the API who is the medium between customer (front-end) requesting, in the kitchen with the the chef and staff is the Server (who is  preparing the thing and giving) and the fridge which provides the ingredients is DB.
-
-The API along with the server and DB together comprise of the backend.
+Part of application that the user cant interact with directly. All logic for the application comes under back-end. Two main segments are DB and Server.
+- DB is what holds all the data for the application. 
+- Server consist of hosting and the APIs.
+- eg. - In restaurant, the waiter is the API who is the medium between customer (front-end) requesting, in the kitchen with the the chef and staff is the Server (who is  preparing the thing and giving) and the fridge which provides the ingredients is DB.
+	- The API along with the server and DB together comprise of the backend.
 
 Spring-boot is the framework for server to use Java to make backend.
 
@@ -60,7 +58,7 @@ It acts as the **internet’s phonebook**.
     - **Root Server:**  
         Directs the resolver to the correct **TLD server** (e.g., `.com`).
         
-    - **TLD Server:**  
+    - **TLD Server(Top Level Domain):**  
         Points to the **authoritative server** for the specific domain (e.g., `google.com`).
         
     - **Authoritative Server:**  
@@ -118,20 +116,23 @@ It acts as the **internet’s phonebook**.
 > DNS is a distributed, hierarchical system that resolves domain names to IP addresses through root → TLD → authoritative servers, with caching and redundancy to make the internet fast and reliable.
 
 ---
+## Questions and Doubts - 
 
-Location based routing, how does it work? -> Works through the Border Gateway Protocal which tells how many hops are needed for the Ip address and then it decides to forward to the least cost path.
+- Location based routing, how does it work? -> Works through the Border Gateway Protocol which tells how many hops are needed for the Ip address and then it decides to forward to the least cost path.
 
-Cache Lives ? Browser cache lasts 60 seconds to 5 minutes. OS caches last from 5 minutes to 1 hour sometimes also 24 hours but honor TTL (Time To Live).
+- Cache Lives ?  -> Browser cache lasts 60 seconds to 5 minutes. OS caches last from 5 minutes to 1 hour sometimes also 24 hours but honour TTL (Time To Live).
 
-Does each multiple auth server have save IP address or how does it work?
-Yes, they are Any casted. 
+- Does each multiple auth server have save IP address or how does it work? ->Yes, they are Any casted. 
+
+- Does the DNS server return the IP address or is the request redirected directly? -> A DNS server does not redirect the request. It returns the IP address to the client. The client then uses that IP address to contact the intended destination, such as a web server.
+
 
 Learn terminal
 GIT all those understanding, Editor V and IntelliJ, Java, Postman get
 
 
 ## Client Server Architecture
-The client (via browser or app)sends requests for what it needs and the server (A powerfull machine or computer running 24/7) provides it back via HTTP (Hyper Text Transfer Protocol). This is the Client Server model.
+The client (via browser or app)sends requests for what it needs and the server (A powerful machine or computer running 24/7) provides it back via HTTP (Hyper Text Transfer Protocol). This is the Client Server model.
 
 ### Http Requests-
 Method - GET, PUT, POST, DELETE etc,
@@ -140,24 +141,24 @@ Header - Metadata such as datatype, auth related data etc.
 Body- Data you want to send to server.
 
 ### Http Response-
-Http Status Code - Status tellers like 200 OK 500 Internal server error
-Headers - Metadata about response like length of response, type, TTL etc.
-Body - Holds what was requested.
+- Http Status Code - Status tellers like 200 OK 500 Internal server error (Tells status of the response being received)
+- Headers - Metadata about response like length of response, type, TTL etc.
+- Body - Holds what was requested.
 
 ### Request Types-
-- Get : Default when you hit a webpage. Its used to retrieve things.
+- GET : Default when you hit a webpage. Its used to retrieve things.
 - POST : Add/Insert new data.
 - PUT : Updating or creating a new resource, replaces the data completely.
-- PATHCH : Updating an existing resource. Partial Update.
+- PATCH : Updating an existing resource. Partial Update.
 
 ### Status Codes-
 - 1XX : Information codes - The server acknowledges and is processing requests.
-	- eg. 100 Continue means initial part of request received and the server is waiting for the remaining request.
+	- eg. (100 Continue) - means initial part of request received and the server is waiting for the remaining request.
 - 2XX : Success Codes - The server successfully received, understood and  processed the request
 	- eg. 200 OK means request was successful.
 - 3XX : Redirection Codes - The server received the request but there is a redirect to somewhere else or in rare cases that some additional action other than a redirect must be completed.
 	- eg. 301 Resource moved permanently means the resource is now move to a new IP address and should be accessed from there.
-- 4XX : Client Error Codes - The server coudnt find or reach the page or website. There is an error on sites side.
+- 4XX : Client Error Codes - The server couldn't find or reach the page or website. There is an error on sites side.
 	- eg. 404 Resources not found
 	- eg. 403 Forbidden failed
 - 5XX : Server Side Error Codes - The Server encountered some issue. The client made a valid request but the server failed to complete the request.
