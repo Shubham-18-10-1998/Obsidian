@@ -1,12 +1,21 @@
+# Why OOP is followed?
+- It enhances code reusability following the DRY principle (Do not Repeat Yourself)
+- Improves scalability as interfaces and classes can be extended to increase levels of implementation
+- Reduces code complexity by being modular in nature (classes and objects)
+
 - ## Abstraction
 	- Means summary/ high-level view of something
 	- To use something, we should know how to use it rather than how its implemented.
 		- eg. In car, we don't need to how brakes work in a car to use brakes and stop the car.
 	- How Is it implemented in classes?
 		- We only need to expose functionality of functions, rather than the working of the functionality.
+		- Achieved through abstract classes and interfaces
+			- They hold the basis of the functionality and blueprint which can be over-ridden (abstract classes) or hold contract for functionality to be implemented (interfaces) without going into the specifics of the implementation.
 		- eg. When we use getters and setters then its abstraction as we dont need how its done, we just use it to set or get the values.
 - ## Encapsulation
+	- Creating a class which encompasses the data members and their functionalities together is encapsulation
 	- Purpose of cover 
+		- Makes it into one entity with members and functions.
 		- To hold things inside.
 		- Protect inside content from outside.
 	- In Class, we have access modifiers, and we can control access of my data in class using these data modifiers.
@@ -24,7 +33,8 @@
 		- Single Inheritance - One parent -> one Child
 		- Multiple Inheritance - Many Parents -> one Child (not possible in Java)
 		- Multi-level -> parent -> parent-child -> child
-		- Hierarchical
+		- Hierarchical - One parent, many children.
+	- Polymorphic variables that are used to refer to child class objects can be used to invoke functions only present in both child and parent class. They **cannot** invoke a function present only in child class and not in parent.
 - ## Polymorphism
 	- Many Forms
 	- Types
@@ -35,8 +45,10 @@
 		- Run Time (Over-riding): Parent and child have same function and name.
 			- Child function version is called and this is called over-riding.
 			- Student s(s is called reference) = new Student(); (this side is called instance)
-				- Reference of parent can receive instance of itself or child class. What function is called depends on instance. Instance allocated at runtime, hence happens at runtime.
+				- Reference of parent can receive instance of itself or child class (This is called polymorphic variable). What function is called depends on instance. Instance allocated at runtime, hence happens at runtime.
 			- Because method to be called depends on the instance, and the instance is created at runtime, hence called runtime overriding.
+			- The return type can be co-variants. That is, the return type of the child can be a sub-class of the return type of the parent.
+			- This happens due to **dynamic patching** where the **this** reference that an object inherently passes to its function when invoked, is used to decide the implementation that is to be followed.
 
 ## Access Modifier Table:
 
