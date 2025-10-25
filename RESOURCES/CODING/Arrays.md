@@ -1,3 +1,5 @@
+Continuous block of memory that stores some homogenous kind of data.
+
 - [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 	- Initial Approach : 2 For loops, and check every possibility
 	- Learning - For Sub-array, the new Element is the max Sub-array if curSum (cumulative max is lesser than 0), or else if curSum > 0, then it can contribute t increase the maxSum sub-array.
