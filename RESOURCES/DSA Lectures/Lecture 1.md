@@ -1,4 +1,5 @@
 # Introduction
+Basic of what are Algorithms and Data Structures along with Big O Notation.
 
 
 # Approach to solve problem
