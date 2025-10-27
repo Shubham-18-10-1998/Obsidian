@@ -11,11 +11,13 @@ Approach for solving problem : Try coming up with a solution on your own.
 - If doubt too specific, then book doubt session for topics.
 
 # Data Structures
-Data Structure : Container for storing and organising data.
+Data Structure : Container for storing and organising data. It is a way to store and organise data in order to facilitate access and modification.
 - Suitcase has stuff for us to carry, clothes and etc. Container for storing particular object.
 
 # Algorithms
 Algorithm : Step-by-step instruction to complete a task.
+Informally an algorithm is any well defined computational procedure that takes some value or set of values as input and produces some value or set of values as output. Thus it is a set of computational steps that transform the input into the output. 
+Can also be seen as a tool for solving a computational problem.
 - eg. - Task to find red color shirt
 	- Open suitcase, and then check till found.
 - These are usually done on some data stored in some data structure.

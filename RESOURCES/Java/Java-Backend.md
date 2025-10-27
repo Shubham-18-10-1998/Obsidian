@@ -6,3 +6,6 @@
 
 [[Lecture 4 ]]
 ![[Lecture 4#Introduction]]
+
+[[Lecture 5 - SOLID Principles]]
+![[Lecture 5 - SOLID Principles#Introduction]]

@@ -11,3 +11,5 @@ Continuous block of memory that stores some homogenous kind of data.
 	- Initial Approach: Sort the array and check adjacent indices for same value
 - [Count Hills and Valleys in an Array](https://leetcode.com/problems/count-hills-and-valleys-in-an-array/)
 	- Initial Approach: Use a prevUniq to keep track of prev non-equal element to compare to find occurrence of hill or valley.
+- [Number of Laser Beams in a Bank](https://leetcode.com/problems/number-of-laser-beams-in-a-bank/)
+	- Initial Approach: Use a prevEmpty flag to keep track of empty rows. However when test case failed realised we don't need to keep that as two continuous rows with lasers devices will have beams between themselves too.
