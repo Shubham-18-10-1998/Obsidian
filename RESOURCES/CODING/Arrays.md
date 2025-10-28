@@ -13,3 +13,6 @@ Continuous block of memory that stores some homogenous kind of data.
 	- Initial Approach: Use a prevUniq to keep track of prev non-equal element to compare to find occurrence of hill or valley.
 - [Number of Laser Beams in a Bank](https://leetcode.com/problems/number-of-laser-beams-in-a-bank/)
 	- Initial Approach: Use a prevEmpty flag to keep track of empty rows. However when test case failed realised we don't need to keep that as two continuous rows with lasers devices will have beams between themselves too.
+- [Make Array Elements Equal to Zero](https://leetcode.com/problems/make-array-elements-equal-to-zero/)
+	- Initial Approach: Use recursion to simulate the process and get solutions. This is essentially brute force and was leading Time Limit Exceeded error.
+	- Learning: If the sum of elements on either side of 0 is equal, then count increases by 2. Or else if sum difference is 1, then we increase by as the sum should be equall to get the condition of all zeroes ultimately. Because problem can thought of dominoes each following 1 by 1 on either sides. and you can escape only if number of dominoes on either side is equal.
