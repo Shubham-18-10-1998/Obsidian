@@ -16,3 +16,5 @@ Continuous block of memory that stores some homogenous kind of data.
 - [Make Array Elements Equal to Zero](https://leetcode.com/problems/make-array-elements-equal-to-zero/)
 	- Initial Approach: Use recursion to simulate the process and get solutions. This is essentially brute force and was leading Time Limit Exceeded error.
 	- Learning: If the sum of elements on either side of 0 is equal, then count increases by 2. Or else if sum difference is 1, then we increase by as the sum should be equall to get the condition of all zeroes ultimately. Because problem can thought of dominoes each following 1 by 1 on either sides. and you can escape only if number of dominoes on either side is equal.
+- [The Two Sneaky Numbers of Digitville](https://leetcode.com/problems/the-two-sneaky-numbers-of-digitville/)
+	- Use a hash-map to store frequency and if frequency is equal to 2, then add to res array.

@@ -1,3 +1,4 @@
+Logic for n-1 iterations in these sorting algorithms: A n element array can be fully sorted if it contains of two sub arrays one having one element thats unsorted and another with n-1 elements which are sorted with the logic that if you have n-1 elements sorted in right place, then the other elements automatically lands in the right place which causes all elements to be sorted.
 
 # Bubble Sort
 ## Logic
