@@ -13,6 +13,10 @@
 
 
 ## Java
+[[Core Java Concepts]]
+![[Core Java Concepts#🧠 **JVM Architecture – Mind Map**]]
+![[Core Java Concepts#✅ BONUS Mini Analogies (for easy recall)]]
+
 
 ### Why is Java Popular?
 - Platform Independence:

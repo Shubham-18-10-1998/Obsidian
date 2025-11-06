@@ -25,17 +25,20 @@
 
 # Association
 A lose relationship between objects that are independent and can exist without each other. has a **uses-a** relationship.
-eg. Teacher-Student, linked to each other, but can exist without each other. What they mean is relationship like heart and human body where heart exists because of body.
+eg. Teacher-Student, linked to each other, but can exist without each other. What they mean by exist is relationship like heart and human body where heart exists because of body and cant exist without it.
 - Here there is no ownership.
+- A **works with/ uses ** B
+- one-one, one-many, many-many
 
 # Aggregation
-A specialised form of association representing whole part relationship where part can exist independently of whole.
+A specialised form of association representing whole-part relationship where part can exist independently of whole.
 - Has a weak ownership
-- HAS a relation.
+- **HAS a** relation.
 - Eg. 
 	- Department and employee. Department **has a** employee.
 		- Both can exist individually.
 	- Library **has a** book
+	- Team has players.
 
 # Composition
 A strong (whole-part) relationship where part **cannot** exist independently. If whole gets destroyed, then child also gets destroyed. They have **owned** and **lifetime-bound** to parent object.

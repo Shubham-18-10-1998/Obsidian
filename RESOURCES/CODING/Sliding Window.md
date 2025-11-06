@@ -32,6 +32,19 @@ Problems -
 	- Learning:
 		- 1.) Original Approach was to maintain a map where the key-value pair represents element, index. Now if element doesn't exist in the map, insert it or else check if current index minus the value for index is <=k. If it its true return true or else if whole loop is traversed without it becoming true, return false. Here the complexity is O(n x log(n)) as count in cpp has complexity has time complexity of O(log(n)).
 		- 2.) New Approach learnt is that, we can use unordered_set which has constant time complexity for insert, delete count etc functions. This helps bring the complexity to O(n).
+- [Minimum Difference Between Highest and Lowest of K Scores](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/)
+	- Initial Approach : Thought that answer would be difference of consecutive elements of array. 
+	- Learnings: Realised that its difference of highest and lowest of k elements chosen, this then equates to min k elements being there. Hence the answer would be the minimum among difference between highest and lowest of k window subarray in the sorted version of the array cause 
+		- then there can be k-2 value between them to satisfy condition 
+		- we can choose any k elements. 
+		- Since its minimum, we take window size as k cause no matter how we choose k elements array, for minimum difference they would have to be k-2 paces apart in the sorted version of the array.
+
+
+
+
+
+
+
 ## Variable Size Window:
 Here the condition isn't the window size, and the point is to maximise or minimise the window size itself, based on a given condition.
 ### General Format 
@@ -47,3 +60,14 @@ Problems-
 	- Learning: Because of it being a min size window question, you have to work on reducing the window size by moving i forward to see if the condition is still getting satisfied. Also consider where i and j are at the end of iterations and how that will affect the window sizes.
 - [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
 	- Learnings : TypeCasting slows down the code, try avoiding wherever possible to accelerate the code.
+- [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
+	- Initial Approach : Used sum to calculate length, and if zero encountered, then reset sum. Maximum sum is equal to longest sub array of consecutive 1s.
+	- Learning: Since it has all characteristics of sliding window, used that approach. Condition is max Length of sub-array.
+- [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+	- Initial Approach : Tried using PriorityQueue for retrieval, for maxFreq and maxFreq char.
+	- Learnings : 
+		- Not needed Priority Queue as O(26n) is O(n). So can just use an int to maintain maxFreq. 
+		- Also can make faster by maintaining array of size 26 to make retrieval faster.
+		- Don't need to update maxFreq while shrinking window, as we don't need to check all valid answers in all windows, we only need max. And for a longer max the maxFreq will have to be greater to satisfy the inequality.
+- [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
+	- Learning : The question is equivalent to max subarray with max k 0s.
