@@ -38,9 +38,9 @@ Problems -
 		- then there can be k-2 value between them to satisfy condition 
 		- we can choose any k elements. 
 		- Since its minimum, we take window size as k cause no matter how we choose k elements array, for minimum difference they would have to be k-2 paces apart in the sorted version of the array.
-
-
-
+- [Find the K-Beauty of a Number](https://leetcode.com/problems/find-the-k-beauty-of-a-number/)
+	- Initial Approach : Use log10 to find value of digit to calculate curNum and then accordingly divide by num.
+	- Learning : Functions like Integer.toString(num) to convert to String. Also use of Integer.parseInt(str) to convert string to integer. Also used these function to use as string, find substring and accordingly solve the problem
 
 
 
