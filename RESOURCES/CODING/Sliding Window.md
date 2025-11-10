@@ -71,3 +71,5 @@ Problems-
 		- Don't need to update maxFreq while shrinking window, as we don't need to check all valid answers in all windows, we only need max. And for a longer max the maxFreq will have to be greater to satisfy the inequality.
 - [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
 	- Learning : The question is equivalent to max subarray with max k 0s.
+- [Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
+	- Learning : To include the case of ending string with collection of spaces, keep track of previous valid word. Also since it was substring, used sliding window concept.
