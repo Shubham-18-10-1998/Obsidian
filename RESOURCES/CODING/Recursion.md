@@ -23,7 +23,9 @@ Recursion means to use a repeated call to the same function with some base condi
 	- Learning : Base condition is 0 to return control.
 - Print 1 to N
 	- Learning : Base condition is index has reached value n
-- 
+- [Target Sum](https://leetcode.com/problems/target-sum/)
+	- Learning : Can understand it as water trickling down paths, you send water down one path and then it goes down the other, and as its recursive calls to the end, eventually the scenarios that were covered for later indices are recovered for the new scenario of this index(ie. the exploring of possibility happening for positive is also down for negative, cause you come back up the recursive ladder again and tehn again go down it with new scenario). 
+	- Also cant use static variable to keep track as its for the class, and hence either reset it every time before function call or make object with res instance value 0 in constructor and then call recursively the function and run.
 
 
 
