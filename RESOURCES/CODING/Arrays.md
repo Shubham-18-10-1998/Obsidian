@@ -18,3 +18,25 @@ Continuous block of memory that stores some homogenous kind of data.
 	- Learning: If the sum of elements on either side of 0 is equal, then count increases by 2. Or else if sum difference is 1, then we increase by as the sum should be equall to get the condition of all zeroes ultimately. Because problem can thought of dominoes each following 1 by 1 on either sides. and you can escape only if number of dominoes on either side is equal.
 - [The Two Sneaky Numbers of Digitville](https://leetcode.com/problems/the-two-sneaky-numbers-of-digitville/)
 	- Use a hash-map to store frequency and if frequency is equal to 2, then add to res array.
+- [Third Maximum Number](https://leetcode.com/problems/third-maximum-number/)
+	- Initial Approach : First sorted the array and the traversed till 3rd unique element found. Initially didn't realise sorting is done in ascending order, but here descending order is needed.
+	- Learning :
+	- `int[]` to `Integer[]` Conversion: 
+    
+	    The `Arrays.sort()` method with `Collections.reverseOrder()` as a comparator only works with object arrays (like `Integer[]`, `String[]`, etc.), not primitive arrays (`int[]`). Therefore, you need to convert the `int[]` to `Integer[]`. This is done using `Arrays.stream(primitiveArray).boxed().toArray(Integer[]::new)`.
+    
+	    - `Arrays.stream(primitiveArray)` creates an `IntStream` from the `int[]`.
+	    - `.boxed()` converts the `IntStream` to a `Stream<Integer>`.
+	    - `.toArray(Integer[]::new)` collects the elements into an `Integer[]`array.
+    
+	- **Sorting in Descending Order:** 
+    
+	    `Arrays.sort(objectArray, Collections.reverseOrder());` sorts the `Integer[]` in descending order.`Collections.reverseOrder()` provides a `Comparator` that reverses the natural order of elements.
+    
+	- `Integer[]` to `int[]` Conversion (Optional): 
+    
+	    If you need the result back in a primitive `int[]` array, you can convert the sorted `Integer[]` back using `Arrays.stream(objectArray).mapToInt(Integer::intValue).toArray()`.
+    
+	    - `Arrays.stream(objectArray)` creates a `Stream<Integer>`.
+	    - `.mapToInt(Integer::intValue)` maps each `Integer` object back to its primitive `int` value, creating an `IntStream`.
+	    - `.toArray()` collects the elements into an `int[]` array.
