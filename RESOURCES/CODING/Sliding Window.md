@@ -52,8 +52,9 @@ Here the condition isn't the window size, and the point is to maximise or minimi
 Problems-
 - [Longest Substring with K Uniques](https://www.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1)
 	- Learning: The window size is alway moved to increase.Because there are 2 possibilities, if the one added element, which gets it over the limit, causes the one element to be eliminated, and then this is the same window size as before, so we can optimise by moving forward for a larger one. The other is many elements are removed to get k back to equal condition, and then we move on to increase anyway.
+		- When using set, made mistake of removing element when duplicate found from set but not re-adding. Instead don't remove itself.
 - [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
-	- Learning: Be careful about what represents what and you are checking count of what in map! Another approach would be to compare the window size to the map size to realise about existence of duplicates!
+	- Learning: Be careful about what represents what and you are checking count of what in map! Another approach would be to compare the window size to the map size to realise about existence of duplicates! 
 - [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
 	- Learning: Used a different variable for count, however, we can also use j-i+1 , which is the window size to reflect the count value.
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)

@@ -1,13 +1,13 @@
 
 # Classes
 - Blue Print for an object
-- Has Data (instance variables : because available to the whole class object) and then methods (Behaviours)
+- Has Data (instance variables : because available to the whole class object) and then Methods (Behaviours)
 - Method - The brackets shows its a function. These are called instance methods.
 	- Return Type : What it gives
 	- Name :
 	- Body : What needs to be done. Also known as scope of a function. Things defined within it are only accessible within it. Hence called local variable.
-- New is constructor invocation.
-- Default constructor provided if custom constructor not provided. The values are provided default values.
+- **new** is constructor invocation.
+- Default constructor provided if custom constructor not provided. The values are provided default values. Once any constructor provided, then default constructor no longer available.
 
 # Object
 Real world representation of a class.

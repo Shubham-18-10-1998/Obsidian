@@ -7,6 +7,7 @@ Characteristics -
 - Termination Condition
 
 ## Problems
+
 - [Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/)
 	- Initial Approach : Worked by covert the parts after establishing equality for a sub section first and then returning the next part between '.'. Eg - 1.001 and 1;
 		- Here the problem was issues like 1 and 1.001 were treated equally and other parts.
@@ -22,3 +23,11 @@ Characteristics -
 - [Apply Operations to an Array](https://leetcode.com/problems/apply-operations-to-an-array/)
 	- Initial Approach : Use two pointer approach to swap between non zero and zero occurrence. Start both from left side (ie. index 0) and then keep moving right. If non_zero index less than zero index, then non_zero index ++ or else swap and continue process.
 	- Learning: After the swap, don't do anything to indices as now they satisfy condition and will find next occurrence.
+- [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+	- Initial Approach : Use two pointer to see if the chars are equal.
+	- Learnings :
+		- Use conversion to compare . But while converting char -> int is implicit, but int -> char have to do explicitly. Hence we have to use (char)(int_value) to get corresponding char.
+		- Also read question properly to know all conditions.
+- [Largest Positive Integer That Exists With Its Negative](https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative/)
+	- Approach : Sort the array so we have negative max on left, and positive max on right. Then can use two pointer to check for pair.
+	- Learning : Use condition to check if l points to negative and r points to positive value or not cause otherwise can end there itself.

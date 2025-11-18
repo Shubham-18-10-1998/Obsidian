@@ -24,11 +24,12 @@ Recursion means to use a repeated call to the same function with some base condi
 - Print 1 to N
 	- Learning : Base condition is index has reached value n
 - [Target Sum](https://leetcode.com/problems/target-sum/)
-	- Learning : Can understand it as water trickling down paths, you send water down one path and then it goes down the other, and as its recursive calls to the end, eventually the scenarios that were covered for later indices are recovered for the new scenario of this index(ie. the exploring of possibility happening for positive is also down for negative, cause you come back up the recursive ladder again and tehn again go down it with new scenario). 
+	- Learning : Can understand it as water trickling down paths, you send water down one path and then it goes down the other, and as its recursive calls to the end, eventually the scenarios that were covered for later indices are recovered for the new scenario of this index(ie. the exploring of possibility happening for positive is also down for negative, cause you come back up the recursive ladder again and then again go down it with new scenario). 
 	- Also cant use static variable to keep track as its for the class, and hence either reset it every time before function call or make object with res instance value 0 in constructor and then call recursively the function and run.
-
-
-
+- [Find the K-th Character in String Game I](https://leetcode.com/problems/find-the-k-th-character-in-string-game-i/)
+	- Learning : Have to type-cast char + int to char again to be made into char. Also since once str length >=k, then it wont change, hence can stop then, instead of doing operation k times.
+- [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+	- Approach : use two index variables, and then if for both strings at given index we have same character, return 1 + sub(index1+1, index2+1) or else return max(sub(index1+1, index2), sub(index1, index2+1))
 
 
 
