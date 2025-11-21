@@ -40,3 +40,11 @@ Continuous block of memory that stores some homogenous kind of data.
 	    - `Arrays.stream(objectArray)` creates a `Stream<Integer>`.
 	    - `.mapToInt(Integer::intValue)` maps each `Integer` object back to its primitive `int` value, creating an `IntStream`.
 	    - `.toArray()` collects the elements into an `int[]` array.
+- [1-bit and 2-bit Characters](https://leetcode.com/problems/1-bit-and-2-bit-characters/)
+	- Initial Thinking : If i trying going from the back to evaluate and see if string is valid, then can find.
+	- Learning : start a loop from i=0, if num == 1, then skip two, or else skip 1, if you end on the last char somehow, (which has to be a 0), then its a valid string, if you don't, that mean that last 0 part of 2 symbol character, and hence value is false.
+- [Keep Multiplying Found Values by Two](https://leetcode.com/problems/keep-multiplying-found-values-by-two/)
+	- Initial Approach : Keep a set to track all values. Then keep the flag true till value of 2 x original is found in set and update value of original.
+- [Largest Number At Least Twice of Others](https://leetcode.com/problems/largest-number-at-least-twice-of-others/)
+	- Initial Approach : Sort and check the last indices to see if condition is satisfied.
+	- Learning : Instead can keep two variables, largest and second largest . When largest updated, old largest becomes second largest. Or else check is value greater than second largest. Then after iterating array check the condition through these variables.

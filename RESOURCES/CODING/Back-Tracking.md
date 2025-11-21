@@ -8,11 +8,10 @@
 if you want to explore all possible paths.
 
 # Problems
-- N Queens
+- [N-Queens](https://leetcode.com/problems/n-queens/)
 	- Note : In Java objects passed as reference, not deep copy mades.
 	- Approach: Initially in each row we know one queen allowed, then we assume every column and try going from there to see of other queens are fitting. Hence here back-tracking helps to explore all possibilities (all columns in a given row)
 		- String builder to make char to string. String builder append. and then stringBuilder.toString().
 
 
-[https://leetcode.com/problems/maximum-subarray/](https://leetcode.com/problems/maximum-subarray/)
 [https://leetcode.com/problems/prefix-and-suffix-search/](https://leetcode.com/problems/prefix-and-suffix-search/)

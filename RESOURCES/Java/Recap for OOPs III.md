@@ -42,15 +42,50 @@ Ideal guidelines which should be followed.
 		- Why follow Leskov?
 			- As to achieve modularity, we need abstraction. And that is achieved by using interfaces / abstract classes. But when we do that, all child classes should implement the functionalities defined by parent class and this is what Leskov demands.
 - Leskov Principle
-	- Substitute child class with parent class without breaking the code. Hence child implement everything of the parent. This "implementation" is honouring the contract.
+	- Substitute child class with parent class reference without breaking the code. Hence child implement everything of the parent. This "implementation" is honouring the contract.
 - Interface Segregation Principle
 	- Only implement what they absolutely need. Hence we violate Leskov if not followed.
 - Dependency Inversion
-	- 
+	- High Level modules shouldn't depend on low level modules, but instead both should depend on abstractions
+		- High Level - App
+		- Low Level - Cloud service. (AWS/Azure etc)
+	- Injection : Each dependency is then injection. This helps dependency inversion.
+	- Only when O , L and I followed.
+		- Setter Based Injection
+		- Construction Based Injection
+		- Field based Injection
 They are all cross related.
+
+## Advanced Principle :
+- Dont Repeat Code (DRY)
+	- Reduce duplications in code.
+- Keep it Simple Stupid (KISS)
+	- Fail Faster
+- You Aren't Gonna Need it (YAGNI)
+	- Only keep what is needed or code that will be called.
+- Prefer Composition over Inheritance (Behavioural Design Pattern : Strategy Design Pattern)
+	- Rigidity : 
+		- Parent has functionality. Then all children have to implement it or utilise it.
+			- Eg. Duck parent class with swim and walk. Rubber duck doesn't need them
+	- Fragility : 
+		- Fragile Base class problem
+		- If base class changed, then child has to override, then lot of extra modification needed.
+	- Lack of Change (Inflexibility): 
+		- Inheritance is compile time. Which method called depend on object. Once object created, can't dynamically be changed.
+	- Solution 1 :
+		- Interface Segregation for functionality
+		- Cant use programming to interface as functionalities segregated.
+		- Hence Failed
+	- Final Solution
+		- PREFER COMPOSITION OVER INHERITANCE
+		  ENCAPSULATE WHATEVER CHANGES
+		- Make behaviour, and then use inheritance for specific variation for each behaviour , and then can compose parent with behaviours.
+			- Here run-time injection, as once we create object, we later also have flexibility to change behaviour. No longer restricted. 
 
 
 # Design Patterns
 Real world solutions using design principles to known problems
+
+Builder Strategy Adapter
 
 

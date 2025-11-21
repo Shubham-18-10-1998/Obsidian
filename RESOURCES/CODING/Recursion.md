@@ -3,7 +3,6 @@ Basic Definition : Function calls itself back in its body.
 - This means the whole function body can replace the area where call is being made.
 - Space Complexity for RecursivePrint() -> There is a stack maintaining the order of function calls, and hence O(N).
 
-
 Recursion means to use a repeated call to the same function with some base condition to terminate the call backs.
 
 # Thinking Process

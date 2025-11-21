@@ -28,6 +28,4 @@ Real world representation of a class.
 - Every class name is recognised by class + package. This is called fully classified class name
 - Package != Directory
 
-Questions - 
-Can one constructor call another another constructor.
-Runtime phases.
+
