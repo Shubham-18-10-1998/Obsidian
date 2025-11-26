@@ -1,0 +1,101 @@
+
+# What is Low Level Design
+- Detailing s systems components, their relationships and interactions
+- Blueprint to write code
+- Focus 
+	- Classes methods, data structures, algorithms and their interactions.
+- Objective :
+	- Translate high-level architecture into detailed implementation.
+- Requirements
+	- Functional Requirements : What should system do.
+	- Non-Functional Requirements : Performance, security, scalability
+
+# Steps
+- Understand problem
+- Note down Functional Reqs
+- Note down Non-Functional reqs
+- Identify entities
+- Identify relationships
+- Draw high-level diagram
+- Go deep into each class 
+- Write code
+
+# Parking Lot Problem
+- ## Functional Requirements
+	- Park car
+	- What kind of vehicles
+		- Car
+		- Truck
+		- Two Wheeler
+		- Bus
+	- Support for multiple floors
+		- 1 floor : Simple as everyone at same place
+		- Multi-Floor : What basis for segregation for for floors
+	- What is payment model for each vehicle
+		- One-Time payment
+		- Hourly Payment System
+		- Vehicle Varied model
+	- Support for multiple Payment Method
+	- Assisted or Automated
+	- Every floor would have 
+		- fixed proportion of parking
+		- Each floor is blocked for specific vehicle
+	- Does each parking spot have multiple vehicles.
+		- Each has one capacity
+	- Different spots for vehicles.
+	- Parking Ticket 
+		- Each vehicle has a ticket helps track things
+	- Parking allocation strategy
+		- Which Floor
+		- Which Vehicle
+	- Entry and Exit
+		- Single entry exit
+		- Multiple entry exit
+	- Display Panel for full parking lot
+		- floor
+		- level
+	- Fall-back strategy when actual logic is failing. ie,. when spot of each match size isn't available.
+	- Summary :
+		- Park cars
+		- Multiple cars
+		- Multiple floors
+		- each floor many spots
+		- Fixed proportion, or fixed floor
+		- allocation strategy to assign cars for floor and on each floor
+		- one entry one exit with panels
+		- modes of payment
+		- Model of payment
+		- Parking ticket for logging
+		- Panels for information
+		- Fall-Back strategy for allocation
+- ## Non Functional - 
+	- Modularity
+	- Separation of concerns
+	- Cohesion
+	- Coupling
+	- Security
+- ## Entities
+	- What classes, abstract classes, interfaces
+	- Relationships
+	- Cardinality of relationship
+	- SOLIDS, OOPS, Advanced Principles
+	- Two Approach 
+		- Bottom Up
+			- Leaf to top
+		- Top Down
+			- Top to bottom
+	- Vehicle Entity
+	- Parking Ticket
+	- Parking Floor
+	- Parking Lot
+	- Parking Spot
+	- Payment Processor
+	- Floor Allocation Strategy
+	- Parking Spot Allocation Strategy
+	- Charging Strategy
+	- Entry
+	- Exit
+	- Panels
+		- Floor
+		- Spot
+	- Parking Ticket Generator

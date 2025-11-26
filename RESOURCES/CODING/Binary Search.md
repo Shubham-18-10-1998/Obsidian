@@ -29,9 +29,10 @@ If we want to search for an element in an array (number) then we can compare wit
 			- index of smallest element is the number of rotations.
 			- The smallest element will be such that element before and after it are both greater than the element itself.
 			- the sub-array where the (minimum) element exists will be such that, starting element will be greater than the ending element.
+			- Also condition that arr[start] < arr[mid], then start = mid+1 is wrong, cause it ignores the case where k = 0 scenario.
 		4.) Relation to Binary Search:
 			- We find condition for element by comparing with given element. Here the condition is its lesser than both neighbouring elements.
-			- We choose a condition to discard one half of the array, here the condtion is to go to the unsorted half of the array.
+			- We choose a condition to discard one half of the array, here the condition is to go to the unsorted half of the array.
 		5.)Note : Here end = mid and not mid-1 as the smaller element which is arr[mid] could be the smallest element too!
 - [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 	- Learnings : 
@@ -40,4 +41,44 @@ If we want to search for an element in an array (number) then we can compare wit
 		- Alternate Approach : Learnt from video that since we know how to find min. index in rotated array (which is the number of rotations clockwise), on either side we have two sorted arrays on which we can subsequently apply standard Binary Search. 
 - [Search in an almost Sorted Array](https://www.geeksforgeeks.org/problems/search-in-an-almost-sorted-array/1)
 	- Current Thinking:
-		- Compare with the element that ind+1, ind and ind-1, cause all elements aotherwise are sorted to at max a index of (ind+1)%n, and then use modulo function.
+		- Compare with the element that ind+1, ind and ind-1, cause all elements otherwise are sorted to at max a index of (ind+1)%n, and then use modulo function.
+- [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+	- Approach : Create an exhaustive list of all the hrs taken to finish all piles from speed 1 to max(piles) cause cant eat more than 1 pile in a hour. Hence going for a speed faster than that is no use. Then as the hrs taken array is descending sorted, can use binary search to find minimum speed such that hrs <= h.
+	- Learning : Don't need to create an auxiliary array to store the results as they are only needed during comparison. Hence get function value and use as otherwise memory exceeded encountered and also there is no use to store all values as many wont even be used.
+- [Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+	- Key point : nums[i] != nums[i+1];
+	- Approach : use binarySearch as multiple value allowed and have to give one of them
+	- Learnings : 
+		- Say cur = nums[mid], prev = nums[mid-1], next = nums[mid+1], then we have four cases
+			- cur > prev && cur > next : This is then an answer
+			- cur > prev && cur < next : Here we put start = mid +1 as we have to go towards the larger value because 
+				- either next > that its subsequent next , then its a peak or else its lesser than it next and even if this trend continues, then the last element will be the peak.
+			- cur < prev && cur > next, then we go end = mid - 1, that is the larger value with same logic as above.
+			- cur < prev && cur < next : Here we can go to any direction as we are gurranteed a peak in both halves.
+- [Aggressive Cows](https://www.spoj.com/problems/AGGRCOW/ )
+	- Approach : Sort the input stalls. Then our search space for gaps becomes 1 to value stalls[len-1] - stalls[0]. We then do a binary search in this search space such that is given gap valid by starting with index 0 as one cow and trying o place cows in stalls with gap >= curGap. if yes, the return true and try finding an ever greater value by continuing the search with start =mid+1. Else gap is greater than we can accommodate all cows, hence end = mid-1.
+- [Magnetic Force Between Two Balls](https://leetcode.com/problems/magnetic-force-between-two-balls/)
+	- Approach : Same as Aggressive Cows
+
+
+Class Problems - 
+
+
+Homework Problems
+
+https://leetcode.com/problems/binary-search/ - Solved
+
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/494934796/ - Solved
+
+https://leetcode.com/problems/search-in-rotated-sorted-array/description/ - Solved
+
+https://leetcode.com/problems/find-peak-element/description/ - Solved
+
+https://leetcode.com/problems/koko-eating-bananas/description/ - Solved
+
+https://www.spoj.com/problems/AGGRCOW/ - Solved
+
+
+Try :
+[https://leetcode.com/problems/text-justification/?envType=problem-list-v2&envId=vi2q1d91](https://leetcode.com/problems/text-justification/?envType=problem-list-v2&envId=vi2q1d91)
+

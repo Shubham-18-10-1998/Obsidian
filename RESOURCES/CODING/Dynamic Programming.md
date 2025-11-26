@@ -10,3 +10,7 @@ Problems:
 - [Adjacent Increasing Subarrays Detection I](https://leetcode.com/problems/adjacent-increasing-subarrays-detection-i/)
 	- Initial Approach : Use two pointer to check for increasing arrays, and then maintain a flag to see if the current sub-array matching condition exists, or else reset flag and continue.
 	- Learnings : Initial approach doesn't work, because it could be a single long increasing sub-array, hence use dp to store length on increasing sub-array at all indices. and compare for index i, i+k. If both >=k, the condition for question met.
+- [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+	- Initial Approach : Use two pointers to find buy point and sell point. But wasn't able to establish the condition for pointer movement.
+	- Learning : After seeing topic as DP, struck that can use minEle so far value, cause stock selling will need minBuyPoint before it.
+- 

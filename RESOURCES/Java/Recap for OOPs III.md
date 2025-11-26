@@ -63,6 +63,11 @@ They are all cross related.
 	- Fail Faster
 - You Aren't Gonna Need it (YAGNI)
 	- Only keep what is needed or code that will be called.
+- Law of Demeter
+	- Car -> Engine -> Cylinder
+		- Here Car shouldn't interact with cylinder directly 
+		- Hence it should interact with engine, Engine should interact with cylinder.
+		- Reason : Cause later then if cylinder stops dependence on cylinder, our code will have to change
 - Prefer Composition over Inheritance (Behavioural Design Pattern : Strategy Design Pattern)
 	- Rigidity : 
 		- Parent has functionality. Then all children have to implement it or utilise it.
@@ -81,6 +86,22 @@ They are all cross related.
 		  ENCAPSULATE WHATEVER CHANGES
 		- Make behaviour, and then use inheritance for specific variation for each behaviour , and then can compose parent with behaviours.
 			- Here run-time injection, as once we create object, we later also have flexibility to change behaviour. No longer restricted. 
+
+
+## Non-Functional Requirements in Designs
+- Coupling
+	- The dependency of entities between them.
+	- Goal : Strive for as low coupling as possible.
+- Modularity 
+	- Each functionality broken into simpler pieces.
+	- Achieved through separation of concerns.
+- Separation of Concerns 
+	- Modules should have single responsibility.
+- Cohesion
+	- Friction-less interaction between entities. They should gel with each other.
+	- Goal : High Cohesion
+		-  Car 10 times -> Engine 10 times. : Needed
+		- Car 10 times -> Engine 7 times -> 3 failures , this shouldn't happen
 
 
 # Design Patterns
