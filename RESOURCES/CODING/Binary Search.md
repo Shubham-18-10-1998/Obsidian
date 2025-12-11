@@ -59,6 +59,8 @@ If we want to search for an element in an array (number) then we can compare wit
 	- Approach : Sort the input stalls. Then our search space for gaps becomes 1 to value stalls[len-1] - stalls[0]. We then do a binary search in this search space such that is given gap valid by starting with index 0 as one cow and trying o place cows in stalls with gap >= curGap. if yes, the return true and try finding an ever greater value by continuing the search with start =mid+1. Else gap is greater than we can accommodate all cows, hence end = mid-1.
 - [Magnetic Force Between Two Balls](https://leetcode.com/problems/magnetic-force-between-two-balls/)
 	- Approach : Same as Aggressive Cows
+- [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+	- Approach : The minimum element will be in the unsorted part of the array. However we also have the condition that the array may be sorted after n rotations where n = nums.length . Hence we compare nums[mid] < nums[end]. This way if its sorted then also we go to first half and otherwise if its lightly rotated where the first half is unsorted we go there. OR else the second half will be unsorted and we go the second half of the array to continue the search
 
 
 Class Problems - 
@@ -77,7 +79,6 @@ https://leetcode.com/problems/find-peak-element/description/ - Solved
 https://leetcode.com/problems/koko-eating-bananas/description/ - Solved
 
 https://www.spoj.com/problems/AGGRCOW/ - Solved
- Find minimum in rotated sorted array 
 
 Try :
 [https://leetcode.com/problems/text-justification/?envType=problem-list-v2&envId=vi2q1d91](https://leetcode.com/problems/text-justification/?envType=problem-list-v2&envId=vi2q1d91)

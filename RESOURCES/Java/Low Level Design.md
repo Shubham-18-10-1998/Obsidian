@@ -99,3 +99,28 @@
 		- Floor
 		- Spot
 	- Parking Ticket Generator
+- ## Class Diagram
+	- Shows classes and relationship
+	- Use separate class only when behaviour also changes. Otherwise use ENUM for segregation.
+	- Cardinality
+		- One - One
+		- One to One
+		- Many to one
+		- Many to many
+	- Abstract class only when inheritance needed
+	- Try keeping as loosely coupled
+	- Use relationship based on variability. when we would want to change in runtime, then has- a relationship (aggregation). 
+	- Payment Processor cant be Abstract with Payment Model with has a cause then many repeated calls from child classes of Payment Processor to Payment model .
+	- Map of boolean, set of spots
+	- Two halves :
+		- First Half
+			- + public
+			- - private 
+		- Second Half
+			- Behaviour too much
+	-  PUSH Strategy
+		- Write Heavy : The publishers puts it to all local caches for readers, and then they only have to read from their caches.
+	- PULL Strategy
+		- Read Heavy : The Users all try to fetch from origins.
+	- 
+		

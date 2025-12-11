@@ -16,7 +16,7 @@ Real world representation of a class.
 - Constructor without parameters is default constructor.
 - Default value provided when default constructor not defined also because when initialised on heap, default values given while ear-marking the space for object instance variables.
 - Instance method can access static variables.
-- Doesn't make sense to access static variables via instance methods. Also static variables are initialised even before object are created/initialised. Hence static methods cannot access instance variables.
+- Doesn't make sense to access static variables via instance methods. Also static variables are initialised even before object are created/initialised. Hence static methods cannot access instance variables / instance methods.
 - Static variables are also initialised by default
 
 # Main Class

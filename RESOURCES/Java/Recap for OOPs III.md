@@ -1,10 +1,10 @@
 # Relationships
-- has a
+- has a : Composition (If child dies when parent dies)/ Aggregation (If child lives even if parent instance cleared)
 - is a -  Inheritance 
-- uses a
+- uses a : Association
 
 ## Association
-Uses a relationship
+**Uses a** relationship
 - Weakest form relationship
 - eg. Driver and a car. Here driver doesn't necessarily have car. Hence here instance variable not needed.
 - When needed it uses an instances of dependent object. But doesn't always need it.
@@ -13,11 +13,11 @@ Uses a relationship
 
 ## Composition
 Very strong relationship. If a human dies, heart wont exist. There is a strong dependence on existence relationship.
-- Has a relation-ship
+- **Has a** relationship
 
 
 ## Aggregation
-Has a relationship
+**Has a** relationship
 - There is no strong relationship where if parent dies also child dies. Hence weak relationship
 - Composition
 - Aggregation 
@@ -41,6 +41,7 @@ Ideal guidelines which should be followed.
 	- Classes are open to extension but closed for modification. If we want to add functionality, extend the class instead of modifying it. Hence to follow this, we need to follow Leskov Substitution Principle.
 		- Why follow Leskov?
 			- As to achieve modularity, we need abstraction. And that is achieved by using interfaces / abstract classes. But when we do that, all child classes should implement the functionalities defined by parent class and this is what Leskov demands.
+			- Why Abstraction is needed ? Because that helps us to not modify code of parent by programming to abstraction.
 - Leskov Principle
 	- Substitute child class with parent class reference without breaking the code. Hence child implement everything of the parent. This "implementation" is honouring the contract.
 - Interface Segregation Principle
@@ -49,6 +50,7 @@ Ideal guidelines which should be followed.
 	- High Level modules shouldn't depend on low level modules, but instead both should depend on abstractions
 		- High Level - App
 		- Low Level - Cloud service. (AWS/Azure etc)
+		- Here the app will use a reference to abstraction (Cloud service) which will the point to abstraction be it AWS or azure (Concrete implementations)
 	- Injection : Each dependency is then injection. This helps dependency inversion.
 	- Only when O , L and I followed.
 		- Setter Based Injection
@@ -57,7 +59,7 @@ Ideal guidelines which should be followed.
 They are all cross related.
 
 ## Advanced Principle :
-- Dont Repeat Code (DRY)
+- Don't Repeat Code (DRY)
 	- Reduce duplications in code.
 - Keep it Simple Stupid (KISS)
 	- Fail Faster
@@ -74,7 +76,7 @@ They are all cross related.
 			- Eg. Duck parent class with swim and walk. Rubber duck doesn't need them
 	- Fragility : 
 		- Fragile Base class problem
-		- If base class changed, then child has to override, then lot of extra modification needed.
+		- If base class changed (implementation for function), then child has to override, then lot of extra modification needed.
 	- Lack of Change (Inflexibility): 
 		- Inheritance is compile time. Which method called depend on object. Once object created, can't dynamically be changed.
 	- Solution 1 :

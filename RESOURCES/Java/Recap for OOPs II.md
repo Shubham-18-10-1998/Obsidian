@@ -10,7 +10,7 @@ Access modifiers helps with protecting data and hence helps with encapsulation.
 	- even package inside given package (child package) cant use default.
 	- there is no concept of hierarchy in package. Package is namespace. Directory is files.
 - private isn't accessible anywhere outside class.
-- protected comes into picture only in case of inheritance. - Default + Sub-classes outisde packages.
+- protected comes into picture only in case of inheritance. - Default + Sub-classes outside packages.
 
 # Inheritance
 - Use commonality from parent
@@ -18,9 +18,9 @@ Access modifiers helps with protecting data and hence helps with encapsulation.
 - This is used to reference to current object.
 - Super is used to refer to parent object. Hence there are two objects. One of the parent and one of the child in which the child references parent along with its properties. Hence also super first, as without parent child can't exist
 - Programming to interface rather than concrete class is to use parent reference for child classes. Also called loose coupling
-- Also parent reference cant access methods of child with different names.
+- Also parent reference can't access methods of child with different names.
 - Multiple inheritance is not supported due to ambiguity as if p1 -> angry when difficulty, and p2--> sad, then what will child do?(Ambiguity)
-- In overriding(Later binding), same signature needed. Runtime polymorphism as object not created till runtime and memory allocated. Also called dynamic method dispatch. HOWWWW? For this (different name function) its not able to find itself what function to call as it doesn't know the function. if same name, then it calls the function but object decides implementation and hence called.
+- In overriding(Later binding), same signature needed. Runtime polymorphism as object not created till runtime and memory allocated. Also called dynamic method dispatch. For this (different name function/ child class function) its not able to find itself what function to call as it doesn't know the function. if same name, then it calls the function but object decides implementation and hence called.
 	- Also need same privilege.
 - Method over-loading, compile time polymorphism. Also called early binding.
 - Constructor chaining.
