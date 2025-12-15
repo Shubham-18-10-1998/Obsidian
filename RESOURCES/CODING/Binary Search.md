@@ -61,6 +61,10 @@ If we want to search for an element in an array (number) then we can compare wit
 	- Approach : Same as Aggressive Cows
 - [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 	- Approach : The minimum element will be in the unsorted part of the array. However we also have the condition that the array may be sorted after n rotations where n = nums.length . Hence we compare nums[mid] < nums[end]. This way if its sorted then also we go to first half and otherwise if its lightly rotated where the first half is unsorted we go there. OR else the second half will be unsorted and we go the second half of the array to continue the search
+- [Minimum Number of Days to Make m Bouquets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/)
+	- Approach : Max is the max of bloomDay and min is 1. For each day that we find mid in terms of binary search, we calculate number of bouquets possible to make. If we find a result we continue to search for smaller value and if number of bouquets possible for that day is less than m, we search in the right of mid.
+	- Learnings :
+		- Increment of i pointer in calculating bouquets should be done carefully to ensure values aren't being skipped.
 
 
 Class Problems - 
