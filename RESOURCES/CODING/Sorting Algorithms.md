@@ -14,6 +14,15 @@ As we go down n steps, and each step the merging takes O(n) as never we have mor
 	- pivot becomes lowerLimit+count instead of count as we are using portion of array where 0 -> lowerLimit.
 
 
+# Problems
+- [Count Inversions in array](https://www.naukri.com/code360/problems/count-inversions_615\)
+	- Learnings : 
+		- Ensure what is begin compared to what in loop and comparison conditions.
+		- If we want to send a value in the sense of pointer that can be manipulated while passing through parameter, use AtomicInteger, AtomicLong etc.
+	- Approach : Use the mergeSort (merging logic) to find where the element to the right is smaller than element to the left.
+- 
+
+
 Practice Questions :
 
 https://www.geeksforgeeks.org/problems/merge-sort/1
@@ -22,7 +31,8 @@ https://leetcode.com/problems/reverse-pairs/description/
 
 https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/
 
-https://www.naukri.com/code360/problems/count-inversions_615
+https://www.naukri.com/code360/problems/count-inversions_615\
+Solved
 
 https://www.naukri.com/code360/problems/quick-sort_983625
 
