@@ -39,9 +39,13 @@ Data helps with Persistence.
 
 ## Working behind the scenes
 User interacts with only API, but how does it work then? 
-- Dispatcher Servlet: Handles the request
-- Handler Mapping : Chooses which controller should the req go to
-- Handler Adapter : converts the req data to java understandable (Serialisation, De-serialisation)
+- ### Dispatcher Servlet
+	- Handles the request
+	- It checks for format of endpoint, doesn't do validation for dataType or check for dataType
+- ### Handler Mapping 
+	- Chooses which controller should the req go to
+- ### Handler Adapter 
+	- Converts the req data to java understandable (Serialisation, De-serialisation)
 All this provided by Spring boot but in spring we have to do all this.
 - Then Controller gets the req
 Controller then interacts with service -> service to -> Repo -> Data Model(Entity)
@@ -126,14 +130,14 @@ need to add
 - Spring Data JPA
 - H2 Database
 - MySql Driver
-Also need to a driver to communicate to Database. Makes them compatible
+Need a driver to communicate to Database to Make them compatible
 H2 -> Memory
 MySql -> Disk
 
 Framework of frameworks -> Spring/SpringBoot
 
-Now for making applications
--> controller
+## Now for making applications
+- ### @RestController
 - In req, 
 	- req body (JSON ->)
 	- response body
@@ -141,42 +145,84 @@ Now for making applications
 	- Status code, reflection -> we get original information from data, along with id in case of success
 - Also needs instance of service hence needs it to be auto wired
 
--> @Entity
+- ### @Entity
 - makes class have equivalent table in db
 	- Here @ Id needed for primary value
 	- @ GeneratedValue (strategy = GenerationType=AUTO) 
 	- This info is for Database
 	- Converting one data type to another (JSON to Java (Done by Jackson) -> serialisation, opposite to it deserialisation)
 	- @RequestBody tells to convert to JSON
-	-  should have default constructor to allow json for deseriailisation 
+	-  should have default constructor to allow json for deserialisation 
 	- FlyWay for migration
-	- 
+	- Learnings
+		- Values need to Long, Integer DataTypes instead of primitive as this allows for null values which are needed when not supplied by JSON in case of id which is supplied as null in case of autogeneration
 
--> Service
-- @Service
-- Autowired instance of repository
-- 
+- ### Service
+	- @Service
+	- @Autowired instance of repository
 
-- Repository
-- @Reposiotry
-	- For interacting with database
-	- Should extends JpaRepository(Learner, primaryKey) with triangle brackets like in the way of generics
+- ### Repository
+	- @Reposiotry
+		- For interacting with database
+		- Should extends JpaRepository(Learner, primaryKey) with triangle brackets like in the way of generics
+	- We use JPQL -> we have predefined functions to map to the possible query with keywords specified by JPQL.
+	- @Query when we want to define our own query
+	- Or we can use @NamedQuery
 
+## Application.properties for setup and to see consoles and debug for database operations
+spring.datasource.driverClassName=org.h2.Driver  
+spring.datasource.username=user  
+spring.datasource.password=pass  
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect  
+spring.jpa.show-sql=true  
+spring.h2.console-path=/h2-console  
+spring.h2.console.enabled=true
 
 # API Modelling
 We should have query parameters, as then we need to distinguish between endpoints as for browser, learner/1 and learner/pawan is same
-- Cant have to endpoints with 2 path-variables 
-- Cant have to endpoints with same resource and same verb
+- Cant have two endpoints with path-parameters because of above mentioned reason 
+- Cant have two endpoints with same resource and same verb
+
+## Difference between query parameters and path parameters
+
+- ### Query Parameteres
+	- They are optional key-value pairs after ? in url.
+	- They are used to identify HOW/WHICH
+	- In SpringBoot passed using @RequestParam
+	- They don't come in path, hence @GetMapping(/resource) itself and the function gets the as @RequestParam("key-for-value-we-are-supplying", ).
+	- We can supply opyional queryParamters as (@RequestParam(value = "key",  required = false))
+- ### Path Parametres
+	- They are part of the url itself and used to identify specific resources. Passed after / in {} brackets
+	- They **CANNOT** be omitted.
+	- In SpringBoot passed using @PathVariable
+
+|Feature|Path Parameter|Query Parameter|
+|---|---|---|
+|URL position|Part of path|After `?`|
+|Purpose|Identify resource|Filter / modify request|
+|Mandatory|Yes|Usually optional|
+|Order matters|Yes|No|
+|RESTful usage|Strong|Secondary|
+**NOTE: We shouldn't use query parameters to identify resources.**
+
+## 🎯 **Rule of Thumb**
+
+- **Path Parameter → WHO / WHICH resource**
+    
+- **Query Parameter → HOW / WHICH filters**
 
 @PathVariable("learnerId") binding needed when variable named different or else we don't need it
 
-with OPtional of type t we use get(),  then we can get ot else null pointerException
+
+
+with Optional of type t we use get(),  then we can use get to fetch non-null value or else NullPointerException
 
 Complex relationships, parent child relationships
 Here law of demetre isnt violated in the represenations
 
-We use JPAQL 
-@Query when we want to define our own query
+
+
+
 
 # Errors and Exceptions
 - Errors are un-handleable (Not recoverable)
@@ -185,20 +231,31 @@ We use JPAQL
 		- Achieved by extending Exception
 	- Unchecked : Runtime Exceptions that happens 
 		- Achieved by extending runtime exception
+- Two ways to handle
+	- Throw
+	- Try, catch blocks
 
-Bubbling : pushing it up to service, controller etc so we can actually get it.
+Bubbling : pushing it up to service, controller etc so user can actually get it.
+
+We can handle runtimeExceptions too, but they represent runtime issues hence aren't meant to be handled. so its like s principle to have expected exceptions to be checked which extend Exception Class.
 
 @ExceptionHandler
-get called by servlet 
+get called by DispatcherServlet 
 For method handling the exception for specific class
 
 However
-For handling exceptions, here we use @ControllerAdvice fro class which wants to be universal error handler 
+For handling exceptions, here we use @ControllerAdvice for class which wants to be universal error handler 
 
 ## Entity Relationships
 6 ways
 - 
 Normalised ways
+
+# Learnings
+- to see what process is running on a port, we use lsof -i:portNumber
+- To kill the process on that id, we do, kill -9 proccesID. Where processID is the processID for process running on that port.
+- Browsers always perform a GET.
+- 
 
 
 
