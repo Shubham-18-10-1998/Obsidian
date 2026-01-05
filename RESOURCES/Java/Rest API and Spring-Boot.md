@@ -195,6 +195,8 @@ We should have query parameters, as then we need to distinguish between endpoint
 	- They are part of the url itself and used to identify specific resources. Passed after / in {} brackets
 	- They **CANNOT** be omitted.
 	- In SpringBoot passed using @PathVariable
+	- If name same don't have bind with @PathVariable("keyName"), if values name is same as variable name.
+	- For binding value in url of mapping should be same as value in pathVariable supplied.
 
 |Feature|Path Parameter|Query Parameter|
 |---|---|---|
@@ -213,16 +215,10 @@ We should have query parameters, as then we need to distinguish between endpoint
 
 @PathVariable("learnerId") binding needed when variable named different or else we don't need it
 
-
-
 with Optional of type t we use get(),  then we can use get to fetch non-null value or else NullPointerException
 
 Complex relationships, parent child relationships
 Here law of demetre isnt violated in the represenations
-
-
-
-
 
 # Errors and Exceptions
 - Errors are un-handleable (Not recoverable)
@@ -247,15 +243,119 @@ However
 For handling exceptions, here we use @ControllerAdvice for class which wants to be universal error handler 
 
 ## Entity Relationships
-6 ways
-- 
-Normalised ways
+6 ways (Cohort and Student)
+- Make a column for studentID in cohort
+	- this leads to redundancy as we have to copy same cohort data as many times as unique students for it are there.
+- Make a list column in cohort, but this is putting a nail in your own foot.
+	- Reason : Lists cannot be indexed in SQL.
+- Make a column in cohort
+- Make a column in cohort with list, but again same problem
+### Normalised ways
+- Join table 
+	- Make a table mapping cohortId to studentId
+	- A primary key being referenced in another table becomes a foreign key there.
+	- Only needed for many-many relationships
+
+**NOTE: Way represented in table for data very different from class relationships**
+
+JPA always represents data in normalised fashion without us taking care of it.
+
+# Back Referencing
+
+- ## Why we don't add reference in learner also for cohort
+	- Because then we have two join tables. Because both are owning the relationship as one can own the others, not both way.
+	- We add reference but use mappedBy("learner") list. this remembers that the table by owner is also utilised here, and this doesn't own the relationship
+		- Back owning doesn't manage the relationship
+	- We need the reference so we can query for learner's cohorts
+	- We cant delete cohort without deleting the relationship wit learners. known as foreign key constraint
+	- As learners is aggregation, cant pass learners list to Cohort. Cannot club cohort creation with learners. creation of cohort, Learner creation, and assigning learner to cohort is three different operations
+	- Without getters and setters Jackson cannot add values for instance variables.
+	- Circular reference leads to infinite
+	- @JsonIgnore -> doesn't return in the JSON response
+- Hence we use DTOs to reduce circular dependency in JSON.
+- In Many to one -> the many to one is the owner of the relationship
+- Many to one cannot use back-reference
+- One to many is the back-reference
+	- Without mapped by there will be a redundant join table
+	- The Java representation isn't equivalent to DB representation
+	- For entities always have to mention cardinality of the relationship
+- When we add back-reference with then both body according to the code own the relationship, and hence we get a redundant join table
+
+# Cascading 
+Multiple Operations have to happen in an order.
+- Keep transactional to allow atomicity so that if error occurs, then we revert everything that happened, or else if completed only then changes committed.
+- Cascading operations, They don't do validations
+- When added or deleted to the parent, then child also
 
 # Learnings
 - to see what process is running on a port, we use lsof -i:portNumber
 - To kill the process on that id, we do, kill -9 proccesID. Where processID is the processID for process running on that port.
 - Browsers always perform a GET.
-- 
+- If we try doing getReferenceByID(), we only get a reference, and hence cant use this to return in get endpoint as the lazyLoading is done at the time of deserialisation, but by then session to hibernate is closed and hence we get lazyLoadingException. 
+- ?1 refers to the first argument being passed
+- @Param(email) and in query pass as :email
+- JPQL != SQL, the syntax and way we pass values is very different. 
+- When we are making a new relationship, then post
+- Every-time there is a relationship between entities, we have to mention cardinality
+- Foreign Key Constraint is that we cannot an entity from the parent table where foreign key is present without deleting the relationship itself
+- Logically separate entities shouldn't cascade. But tightly coupled like Entity and Entity metadata should be cascade. Where validation could be required, there we shoudnt use cascade.
+- Inheritance and aggregation -> eg -> Course has batched with id, the batched can have same id, as they all exist in the same table, but their parent in the data-world is different. 
+
+# Sequel Ace
+For querying the database
+
+# Server health
+Observability and Monitoring
+- Event Driven System
+	- Actuator is library in Spring-Boot to monitor server health
+
+
+# Validating
+- For user input -> controller
+- For derived values -> db call time
+- Extra fields are always neglected
+- HIBERNATE VALIDATIONS are used to validate entity
+- Validation rules added to entity. In controller, we add @Valid annotation to the entity we are inputting
+- Validation throw MethodArgumentException
+
+# Best Practices for APIs
+
+## What is versioning for APIs
+Contract BETWEEN US ANSD PAWAN ABOUT CLASS TIMES
+What if he changes from 8 - 10 to 10-12
+
+Changing contract such that, previous version fails -> backward incompatible change
+If change like adding not required query parameter, is back-compatible changes
+if cohort/{cohortId}/learners -> cohort/learners?=cohortId (back-incompatible)
+
+To prevent breakages, we use versioning for not-backward incompatible changes.
+
+## What is pagination and sorting
+
+We use pagination when payload is going beyond 20mb, to break the response into segments.
+To prevent 
+- Add pagination to divide into segments
+	- But every thing it needs it queries
+	- Number of response to get each time is also parameter
+
+# Why Sorting ?
+If sorting in UI, then localised sorting
+Global if done in server
+
+@RequestingMapping("v1")
+
+- For pagination -> Page
+JPA -> support pagination
+
+Use parent child relationships wherever necessary
+
+
+# Unit testing and Integration Testing
+Shift left -> 
+
+Unit testing -> each indiviual functionality is working fine
+
+
 
 
 
@@ -266,6 +366,18 @@ https://stackoverflow.com/questions/52409579/protocol-buffer-vs-json-when-to-cho
 https://www.linkedin.com/blog/engineering/infrastructure/linkedin-integrates-protocol-buffers-with-rest-li-for-improved-m
 
 https://github.com/toon-format/toon
+
+Read normalisation
+
+Doubts?
+So Owning means - they have the original reference for the back-reference?
+
+Many to one with-out mapped by what happens?
+
+
+
+
+
 
 
 
