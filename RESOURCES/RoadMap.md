@@ -10,4 +10,6 @@ Put work Experience
 
 Put in efforts on your own.
 
+https://docs.google.com/document/d/1rurjhjkXTLB2OnLX_PJGNPEA80PTbqQuzfgfWbzZTz0/edit?usp=sharing
+
 

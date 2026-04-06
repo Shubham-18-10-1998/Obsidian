@@ -14,6 +14,12 @@ if you want to explore all possible paths.
 		- String builder to make char to string. String builder append. and then stringBuilder.toString().
 - [Word Search](https://leetcode.com/problems/word-search/)
 	- Approach : Used a helper which also keeps a visited board to know if a given element in board has already been visited. This is made true, when on char, and made false in back-tracking region after all subsequent recursion calls. This helper is called from all indices as starting point.
+- [Combination Sum](https://leetcode.com/problems/combination-sum/)
+	- Concepts - #Backtracking
+	- Approach : Used Back-tracking to use value add it comb array and then call helper, and on returning we remove this last element we had added to explore other options. Also since we need the combination to be unique, we also pass index to function, so other calls use value equal to or after the index, this ensure, 2,2, 3 is possible but 2,3,2 isn't possible as candidates has only unique elements.
+	- Learnings
+		- Sorting the array helps reduce extra recursion calls, when candidates are greater than target.
+	- Status : Solved
 
 
 [https://leetcode.com/problems/prefix-and-suffix-search/](https://leetcode.com/problems/prefix-and-suffix-search/)

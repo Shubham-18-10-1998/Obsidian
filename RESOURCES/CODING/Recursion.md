@@ -29,6 +29,16 @@ Recursion means to use a repeated call to the same function with some base condi
 	- Learning : Have to type-cast char + int to char again to be made into char. Also since once str length >=k, then it wont change, hence can stop then, instead of doing operation k times.
 - [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 	- Approach : use two index variables, and then if for both strings at given index we have same character, return 1 + sub(index1+1, index2+1) or else return max(sub(index1+1, index2), sub(index1, index2+1))
+- [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)
+	- Approach : base case is if n == 0 || n == 1, return n or else we have to return 1 + function(n % Math.pow(2, maxPower)).
+	- Status : Solved
+- [Permutations](https://leetcode.com/problems/permutations/)
+	- Concepts - #Backtracking #Recursion
+	- Approach : Make the res a global instance variable. Now we pass to the helper function, an existing list, which has values added before it. We start with empty list, and pass a count for number of numbers the perm contains. If count == nums.length, then we add the perm to res and return or else, we iterate through the array, add the number to a copy of the perm, and pass it to helper again with count+1.
+	- Learnings
+		- The count at max will be equal to nums.length when all values added to perm, so we should return from there.
+		- For backtracking solution, add the value, explore subsets, and then remove the value. This way we optimise by not having to create many auxiliary perm arrays that are not used later.
+	- Status : Solved
 
 
 

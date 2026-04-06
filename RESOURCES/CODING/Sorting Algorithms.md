@@ -20,7 +20,11 @@ As we go down n steps, and each step the merging takes O(n) as never we have mor
 		- Ensure what is begin compared to what in loop and comparison conditions.
 		- If we want to send a value in the sense of pointer that can be manipulated while passing through parameter, use AtomicInteger, AtomicLong etc.
 	- Approach : Use the mergeSort (merging logic) to find where the element to the right is smaller than element to the left.
-- 
+- [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+	- Approach : Sort the arrays and then see if you have two consecutive element to be equall for duplicate.
+	- Learnings :
+		- If len == 1, then return false.
+	- Status : Solved
 
 
 Practice Questions :

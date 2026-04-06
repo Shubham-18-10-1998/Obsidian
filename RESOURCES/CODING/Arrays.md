@@ -48,3 +48,68 @@ Continuous block of memory that stores some homogenous kind of data.
 - [Largest Number At Least Twice of Others](https://leetcode.com/problems/largest-number-at-least-twice-of-others/)
 	- Initial Approach : Sort and check the last indices to see if condition is satisfied.
 	- Learning : Instead can keep two variables, largest and second largest . When largest updated, old largest becomes second largest. Or else check is value greater than second largest. Then after iterating array check the condition through these variables.
+- [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+	- Approach : as you iterate through the array keep track of min price so far, and calculate profit wrt cur_min. If profit greater than res, update res.
+	- Staus : Solved
+- [Single Number](https://leetcode.com/problems/single-number/)
+	- Approach : Sort the nums array. If len = 1, then return nums[0], if nums[0] != nums[1] return nums[0] or see if nums[i-1] != nums[i] && nums[i] != nums[i+1] then return nums[i] or else return nums[n-1].
+	- Learnings : 
+		- Here use XOR logic, as when a XOR a  = 0 and 0 XOR y = y. since we have duplicates their XOR will give 0 and ultimately answer will be unique element. 
+		- Also if answer is zero which we instantiate, then we get answer as zero itself. and 0 XOR anything is number itself.
+	- Status : Solved
+- [Missing Number](https://leetcode.com/problems/missing-number/)
+	- Approach : Use a sum to calculate (N x N+1)/2. Then we iterate through the array to compute total sum. since one number is missing sum - calcualted sum will be missing number
+	- Learnings :
+		- Can you XOR too i ^ i = 0 and 0 ^ a = a. so if we XOR all elments and indices, the final result will be missing number.
+	- Status : Solved
+- [Insert Interval](https://leetcode.com/problems/insert-interval/)
+	- Approach : Check if the intervals is empty then just return newInterval. Else give start = 0 and start a while loop with condition start < intervals.length. Now we check for intersection or where to put the new Interval. This has 3 conditions
+		- is newInterval[1] < intervals[start][0]
+			- then we add newIntervals to res, and then add intervals to res
+		- if newInterval[0] > intervals[start][1]
+			- Then we add intervals[start] and increase start.
+		- Else (There is an intersection)
+			- We do a prev = intervals[start++] and maintains a new int[] agg which will hold the cumulative interval. Now for this agg, agg[0] = Math.min(prev[0], newInterval[0]) and then we run a loop while(start < interval.length && intervals[start][1] <= newInterval[1]){prev = intervals[start++]}. After this loop is run, we do agg[1] = Math.max(prev[1], newInterval[1]). This helps handle running to the end of the array too and adding the interval. 
+		- Now when we add the interval we use the flagAdded = true. This helps us handle the case, all intervals were handled and there was no intersection. then we add
+		
+- newInterval to the end.
+	- Learnings : We can convert list of int[] to int[][] by doing list.toArray(new int[list.size][])
+	- Optimal Code :
+		- class Solution {
+		    public int[][] insert(int[][] intervals, int[] newInterval) {
+		        List<int[]> result = new ArrayList<>();
+		        int i = 0;
+		        int n = intervals.length;
+
+		        // 1️⃣ Add all intervals completely before newInterval
+		        while (i < n && intervals[i][1] < newInterval[0]) {
+		            result.add(intervals[i]);
+		            i++;
+		        }
+
+		        // 2️⃣ Merge all overlapping intervals
+		        while (i < n && intervals[i][0] <= newInterval[1]) {
+		            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+		            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+		            i++;
+		        }
+
+		        // Add merged interval
+		        result.add(newInterval);
+
+		        // 3️⃣ Add remaining intervals
+		        while (i < n) {
+		            result.add(intervals[i]);
+		            i++;
+		        }
+
+		        return result.toArray(new int[result.size()][]);
+		    }
+		}
+	- Status : Solved.
+- [Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+	- Concepts - #Arrays #Sorting 
+	- Approach : First sort the intervals, based on the first value of interval. We then first add the intervals[0] to res list as newInterval. Then we iterate through the list to see if newInterval[1] >= intervals[ind][0], then we can merge them and the newInterval[1] becomes Math.max(newInterval[1], intervals[ind][1]). Else we create a new int[] newInterval for the intervals[ind] and add it to the list.
+	- Status : Solved
+	- Other similar problems -
+		- Insert Interval, Meeting Rooms, Non-overlapping Intervals

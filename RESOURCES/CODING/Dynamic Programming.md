@@ -13,4 +13,9 @@ Problems:
 - [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 	- Initial Approach : Use two pointers to find buy point and sell point. But wasn't able to establish the condition for pointer movement.
 	- Learning : After seeing topic as DP, struck that can use minEle so far value, cause stock selling will need minBuyPoint before it.
-- 
+- [Counting Bits](https://leetcode.com/problems/counting-bits/)
+	- Approach : Use dynmic Programming to calculate the number of 1 bits for an integer and use this to find them for the other. Now lastMajorEven is last even with only 1 1. Ands for odds its dp[i-1] + 1, where as for even it follows the same pattern for dp[i-lastMajorEven] + 1. cause they get filled right to left so.
+	- Optimised Approach : Use bit manipulation, doing i>>2 divides the number by 2. And because the increase in similar fashion for number there bits for even will be same as n/2. and then we use i & 1 to fins if its odd and this gives us an additional 1 to add to the value. for the last bit.
+	- Learnings :
+		- maxLen initially should be 1 as it essentially tells how many bits at max are being used rn for approach solution.
+	- Status : Solved

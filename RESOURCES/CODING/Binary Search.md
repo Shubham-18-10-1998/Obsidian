@@ -35,10 +35,19 @@ If we want to search for an element in an array (number) then we can compare wit
 			- We choose a condition to discard one half of the array, here the condition is to go to the unsorted half of the array.
 		5.)Note : Here end = mid and not mid-1 as the smaller element which is arr[mid] could be the smallest element too!
 - [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+	- Approach : Draw a digram and see how to array is affected and what the cases are
+		- If we have rotated, with break in the middle, start > end
+			- In this case we have two possibility
+				- the mid is on the same slope as start and then we can compare if value lies in this interval, if not make start = mid + 1;
+				- if mid lies on same slope as end, then check if value lies in that slope, if not then make end = mid-1;
+				- Note : Keep equality when checking if value in slope with end and start so that we keep the slope if the value was there.
+		- Or else its a slope and we can apply normal BST there.
 	- Learnings : 
 		- Use the learnings of previous problem to understand how one part is sorted and other isn't, and how that affects the location of the element wrt to others.
 		- Use nums[start] == target and nums[end] == target to find if the element has been found as these are discarded in subsequent iterations.
 		- Alternate Approach : Learnt from video that since we know how to find min. index in rotated array (which is the number of rotations clockwise), on either side we have two sorted arrays on which we can subsequently apply standard Binary Search. 
+		- NOTE : We see that one half will be sorted, and we can use that half to find if value lies, there or else we move to the other half.
+	- Status : Solved
 - [Search in an almost Sorted Array](https://www.geeksforgeeks.org/problems/search-in-an-almost-sorted-array/1)
 	- Current Thinking:
 		- Compare with the element that ind+1, ind and ind-1, cause all elements otherwise are sorted to at max a index of (ind+1)%n, and then use modulo function.
@@ -65,6 +74,14 @@ If we want to search for an element in an array (number) then we can compare wit
 	- Approach : Max is the max of bloomDay and min is 1. For each day that we find mid in terms of binary search, we calculate number of bouquets possible to make. If we find a result we continue to search for smaller value and if number of bouquets possible for that day is less than m, we search in the right of mid.
 	- Learnings :
 		- Increment of i pointer in calculating bouquets should be done carefully to ensure values aren't being skipped.
+- [First Bad Version](https://leetcode.com/problems/first-bad-version/)
+	- Approach : Here we use a binary search to find the lowest occurrence of bad.  Hence this returns first bad version.
+	- Learnings :
+		- Used recursion, hence used a global variable. or else could use a common variable with while loop.
+		- Can return start in recursion base condition. 
+- [Binary Search](https://leetcode.com/problems/binary-search/)
+	- Approach use a start = 0. end = nums.length-1. Condition for while loop should be start <= end. Now compute mid using start + (end-start)/2. this prevents int overflow. Compare target with nums[mid]. if value is equal, then return mid, if its smaller than target, then start = mid + 1 or else end = mid - 1. this works cause array is sorted and mid if value is smaller than target all values before mid are also smaller and hence we dont need to search there. Similarly, if the value is larger, then all value to the right of mid are larger and we dont need to search there.
+	- Status : Solved
 
 
 Class Problems - 

@@ -33,6 +33,7 @@ A class with information
 	- Learnings : 
 		- slow and fast pointer
 		- Note : Try for first middle event in case of even.
+		- We have to update the fast first to see if next != null cause otherwise we have to break cause the slow is at the mid-point.
 - [Linked List Insertion At End](https://www.geeksforgeeks.org/problems/linked-list-insertion-1587115620/0)
 	- Learnings :
 		- checks for null head
@@ -48,6 +49,8 @@ A class with information
 	- Approach : Keep an itr which initially points to head, In the loop check while itr != null, if the value is found, or else go to the next value. If all values checked without finding key then value doesn't exist.
 - [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 	- Approach : Decide the head first, as if one of the list is null we can just return the other list this also helps to return the head in the end. Then keep two pointers, one for itr, one for prev, and manipulate the prev.next to itr now chosen and before assigning the node, make list = list.next for the respective list who node has been chosen.
+	- Learnings :
+		- Keep two pointers for each list to iterate through it, one to maintain prev of sorted list, and one cur to show current node of final list. Finally when one of the cur pointers for list becomes null, make common cur.next to be the be the cur of the other list.
 - [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 	- Approach : Create a new linked list with head, cur to point to current node being operated on, and a prev to keep track of previous node. This prev plays a crucial role in case of carry over for last node value. IN case if carry is 1, the cur gets a val of 1 or else prev.next becomes null.
 	- Learnings :
@@ -55,10 +58,19 @@ A class with information
 		- Use a prev to track the penultimate tail node of linked list.
 		- use a carry to track the carry over.
 - [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
-	- Approach : use a hash-set for the nodes. As it doesn't store duplicate values then in case we cycle and trying adding the value we will get a false for addition.
+	- Approach : Use a hash-set for the nodes. As it doesn't store duplicate values then in case we cycle and trying adding the value we will get a false for addition.
+	- Optimised Approach : use a slow and fast pointer, if fast pointer becomes null at any point. then we can break and there is no cycle or else we do slow = slow.next and fast = fast.next.next. If the values are equal, then there is cycle or else no cycle.
 	- Learning : 
 		- add() for hash-set returns a boolean to show if value was added or not.
 		- since head isn't allowed to be null for loop condition, set null doesn't interfere with the logic.
+		- Adding Node is better than val, as val can be duplicate but node unless same will not be equal.
+	- Status : Solved
+- [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+	- Initial Approach : Use a stack till mid node is reached to store values, and pop in the second half of iteration to see if its a palindrome. But this needs O(n) space complexity.
+	- Optimised Approach : Find the middle and reverse from mid.next. If its oddNumbered, then you can make prevMid.next == null. Now compare the two list to be equal, and if they don't match at any point, then not a palindrome, or else palindrome.
+	- Learnings :
+		- Here first middle is needed, so logic changes slightly from second middle problem, so keep that in mind.
+	- Status : Solved
 
 
 Questions -

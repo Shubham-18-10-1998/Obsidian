@@ -28,6 +28,45 @@ Characteristics -
 	- Learnings :
 		- Use conversion to compare . But while converting char -> int is implicit, but int -> char have to do explicitly. Hence we have to use (char)(int_value) to get corresponding char.
 		- Also read question properly to know all conditions.
+		- Keep condition if either char is numeric, hen diff in ascii should be zero or else can be 0 or 32.
 - [Largest Positive Integer That Exists With Its Negative](https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative/)
 	- Approach : Sort the array so we have negative max on left, and positive max on right. Then can use two pointer to check for pair.
 	- Learning : Use condition to check if l points to negative and r points to positive value or not cause otherwise can end there itself.
+- [Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)
+	- Approach : 
+		- Can use stack to format each string and then compare them but this uses O(n) space complexity.
+		- To do it in O(1) space complexity, we have to use two pointers, one at the end of each.
+	- Learnings :
+		- We use the condition of ind1 >=0 || ind2 >= 0 so that we can continue to format excess # back spaces in one of the strings. For the index finding, we use a function which takes an aux as current ind to find the final index after backSpaces are done. If the char ended up on is a backspace # again, we call the function again to finally return the non # char index or -1.
+	- Status : Solved
+- [Two Sum](https://leetcode.com/problems/two-sum/)
+	- Approach : as here its not sorted, we have to use arrayList of pair of integer where getKey() is value and getValue() is the index in original array.
+	- Learnings :
+		- We have to use a comparator to do this which is defined as
+			- Comparator<Pair<Integer, Integer>> comp = Comparator.comparing(Pair::getKey)
+		- Better Solution : Use hash-map
+	- Status : Solved
+- [Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+	- Approach : Use a two pointers to solve. First pointer finds zero pointer, and second pointer looks for non-zero after that to fill the position. This way you continue till one of the pointer becomes num.length.
+	- Learnings :
+		- Can you filling first non zero elements to the array and then stuffing array with 0.
+	- Status : Solved
+- [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+	- Approach : Get the array squared, and then use two pointer, one at start and other at the end of the squared array. Take a res[] array and start filling from the back.
+		- If nums[back] >= nums[start] : res[ind--] = nums[back--]
+		- else res[ind--] = nums[start++]
+	- Learnings : 
+		- The intuition is that we can compare the startand the end and decide what value to put, and also the max values (if negatives are there) would be along the ends cause its a sorted array.
+		- Also avoid changing the input, so use abs value to compare and put in the res.
+	- Status : Solved
+- [3Sum](https://leetcode.com/problems/3sum/)
+	- Approach : Sort the array, and then use your nums[i] x -1 as target, and start a two pointer with start =  i+1 and end = nums.length - 1. Now whenever we get the condition of curSum (num[start] + nums[end] == target) do start++ and then run loop while(start <= end && nums[start] = nums[start-1]){start++;} and similarly for end do end--, and then run loop while(start <= end && nums[end] == nums[end+1]){ end--;}. As the questions says no duplicates are allowed for the triplets, this prevents that. Also doing the increment(start)/decrement(end) first allows to run the loop smoother as we know the start-1 and end+1 are valid values. Also for nums[i] keep check if( i >= 1 && nums[i] == nums[i-1]){continue;}, this prevents from using the same target again to prevent duplicates.
+	- Learnings :
+		- Can use hash-maps too, but this is worse for space complexity.
+	- Status : Solved
+- [Sort Colors](https://leetcode.com/problems/sort-colors/)
+	- Concepts : #Two-Pointers #DutchNationalFlagAlgorithm
+	- Approach : Used a hash-map using array to keep count of each colour, and then fill the array accordingly.
+	- Optimal Approach : Use two-Pointer, one to mark the end of 0 zone and one to mark the start of 2 zone. If you encounter a 0, swap nums[ptr] with nums[++ptr_0] and if ptr <= ptr_0, then we make it as ptr_0+1, this happens, when the value originally there was also a 0 (that is 0 is already in right place). When nums[ptr] == 2, then swap with nums[--ptr_2] and check if ptr >= ptr_2 then we can break as all are in right place now.
+	- Learnings : We dont need to check ptr <= ptr_0 instead in that code black we always do ptr++, cause the swapped value can only be 1 or 0 either case its okay because ptr_0 will either eventually handle it, or 1 is in right place.
+	- Status : Solved

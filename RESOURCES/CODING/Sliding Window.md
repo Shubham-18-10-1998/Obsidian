@@ -55,6 +55,7 @@ Problems-
 		- When using set, made mistake of removing element when duplicate found from set but not re-adding. Instead don't remove itself.
 - [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 	- Learning: Be careful about what represents what and you are checking count of what in map! Another approach would be to compare the window size to the map size to realise about existence of duplicates! 
+	- Status : Solved
 - [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
 	- Learning: Used a different variable for count, however, we can also use j-i+1 , which is the window size to reflect the count value.
 - [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)

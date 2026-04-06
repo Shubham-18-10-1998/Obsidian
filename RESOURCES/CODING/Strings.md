@@ -1,3 +1,15 @@
 Problems-
 - [Find Resultant Array After Removing Anagrams](https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/)
 	- Initial approach: use hash_maps to maintain counts of cur_unique, and cur_itr, if matches then continue, else make cur_itr as cur_unique, push back string in res and continue.
+- [Rotate String](https://leetcode.com/problems/rotate-string/)
+	- Approach : Use one pointer on s string, and keep another at 0. Whenever char at s is chat at goal(0), then we start counter from o to length goal to see if string matches. We can use modulo on index for string s so the rotations is taken care of. If after the matching loop ends, then value of goal string iterator is equal to length goal, then we have a match or else we continue from next index.
+	- Status : Solved
+- [Add Binary](https://leetcode.com/problems/add-binary/)
+	- Approach : Create a function to add char and carry and then keep calling it for each index till out of bound for either, and then continue for the one thats still left. Also keep track of carry, if in the end carry is 1 and then append to start in the end.
+	- Status : Solved
+- [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
+	- Initial Approach : Use teo for loops for iterating through two different springs and find their common longest prefix. If this is less in length than existing prefix, replace res with this prefix
+	- Approach : Use first string as prefix and iterate through all strings other than first one and keep reducing length of prefx till str.startWith(prefix) isnt true. If prefix becomes "" return from there itself
+	- Learnings :
+		- Don't need to compare all pairs as if they have this prefix in common, because a smaller prefix between two already restricts its max length for others too and comparing it to see if other string atleast contains this much ensure its the longest common.
+	- Status : Solved
