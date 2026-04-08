@@ -19,7 +19,7 @@ High Level Design -> System Design (LLD + HLD)
 	- Solution to this is DataBase
 
 ## DataBase
-- **Definition** : Collection of *related* data.
+- **Definition** : Collection of **related** data.
 	- Eg. : AirTribe
 		- Student.csv
 		- Batch.csv
@@ -38,6 +38,7 @@ A software system that allows efficiently manage database. Efficiently here mean
 	- Data Integrity
 	- Data Security
 	- Data Concurrency
+	- Efficiency
 
 ## Operations to Perform on Data using DBMS
 Data Structure - organised way to store and retrieve data. (Store data in meaningful way)
@@ -67,7 +68,7 @@ NoSQL can also be relational
 	- Note: MySQL preserves order
 - Sequence of rows is not guaranteed
 	- Note: MySQL preserves the order.
-- Name of every column has to be unique. This helps ambiguity in store and fetch.
+- Name of every column has to be unique. This helps avoid ambiguity in store and fetch.
 
 
 
