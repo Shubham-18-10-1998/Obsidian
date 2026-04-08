@@ -31,7 +31,7 @@ Basics of recursion applied
 	- Learnings : It works withy logic what if i use one more coin, then what can i achieve. This helps solves the possibilities of previous values being populated in the best way too.
 	- Status : Solved
 - [Word Break](https://leetcode.com/problems/word-break/)
-	- Concepts : #DynamicProgramming
+	- Concepts : #DynamicProgramming #Trie #DFS 
 	- Initial Approach : Initially tried a trie approach for matching.  Created a trie for wordDict. And then i would go through the word s and try matching, via the logic that if match occurs, then we go to root of trie to continue matching, or else no match return false via a DFS of trie. This leads to TLE as in the matching, we split into 2 options, continuing during match to see if other matches after this match are possible too and this leads to exponential increase in calls.
 	- Working approach : Use a dp array start to keep track of indices that allow me to start the word. Initially this is only zero. Then we iterate through this array for only indices that have start as true, and match with our wordDict. if during an iteration if word match occurs and we have ind = s.length, then we have a match, and hence we return true from there. else outside the loop we return false.
 	- Optimal Approach : 

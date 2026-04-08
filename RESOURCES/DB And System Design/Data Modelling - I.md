@@ -68,7 +68,7 @@ NoSQL can also be relational
 	- Note: MySQL preserves order
 - Sequence of rows is not guaranteed
 	- Note: MySQL preserves the order.
-- Name of every column has to be unique. This helps avoid ambiguity in store and fetch.
+- Name of every column has to be unique. This helps avoid \ambiguity in store and fetch.
 
 
 
