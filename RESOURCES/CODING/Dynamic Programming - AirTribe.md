@@ -38,7 +38,16 @@ Basics of recursion applied
 		- Use a has set with minLength and MaxLength computed. This reduces the waste comparisons of subtring, and hash-set has o(1) lookup, and hence we try using this to find valid start[i] to compute from and then move forward. If in any iteration we get start[s.length] = true, we return true from there.
 		- Use a trie, this helps us compare valid substrings, and does this optimally.
 	- Status : Solved
-
+- [Target Sum](https://leetcode.com/problems/target-sum/)
+	- Concepts : #DynamicProgramming 
+	- Approach : As we need to keep track of values reached at each index, and in the number of ways we can reach it, we see that, dp[i][j+nums[i-1]] += dp[i-1][j]. This helps us know the. number of ways we can reach a given value at a given index. Ultimaltely we have to return dp[n][target+1000] cause i maintained 2D array from -1000 to 1000, where -1000 is 0.
+	- Optimal Approach : 
+		- We can seprate into two subsets, one having positives and one having negatives. Then s1+s2 = sum, and s1-s2=target, then 2s1 = sum+a=target, thus we can use this s1 target sum to find the sum that the posiitves should genearte. This also helps detect early fail, if its not divisible by two then we can return 0. 
+		- Also dp[i+num[i]] = dp[i+nums[i]] + dp[i], as this can be be reached in as many ways as the previous could be reached.
+		- We iterate from target to 0, so that when we add, we dont re use them.
+	- Old Approach :
+		- [[Recursion#Problems]] (Target Sum)
+	- Status : Solved.
 
 https://leetcode.com/problems/longest-common-subsequence/description/
 https://leetcode.com/problems/longest-increasing-subsequence/description/

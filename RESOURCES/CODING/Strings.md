@@ -13,3 +13,17 @@ Problems-
 	- Learnings :
 		- Don't need to compare all pairs as if they have this prefix in common, because a smaller prefix between two already restricts its max length for others too and comparing it to see if other string atleast contains this much ensure its the longest common.
 	- Status : Solved
+- [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
+	- Concepts : #Strings 
+	- Approach : Use a pointer to iterate through the string. Keep track of conditions mentioned in the question.
+		- If there is inValidChar in any stage return val
+		- If you reach len in the middle, return val
+		- Also while encountering valid digits, check you encounter only digits, if you encounter anything else, then you break out of loop.
+	- Learnings:
+		- In case of overflow you reach the other side. Also to check if we will be overflowing at any point, check if val < Integer.MIN_VALUE/10 || val x 10 - (s.charAt(i) - '0') > 0, this checks if there is overflow. Similarly for positive side we check if val > (Integer.MAX_VALUE/10) || val x 10 + (s.charAt(i) - '0') < 0 .
+		- Maintain the code like state machine going from one state to another, ie.
+			- First deal with spaces
+			- Then deal with sign
+			- Then deal with digits
+			- Then give result.
+	- Status : Solved.

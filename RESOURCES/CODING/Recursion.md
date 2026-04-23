@@ -39,6 +39,17 @@ Recursion means to use a repeated call to the same function with some base condi
 		- The count at max will be equal to nums.length when all values added to perm, so we should return from there.
 		- For backtracking solution, add the value, explore subsets, and then remove the value. This way we optimise by not having to create many auxiliary perm arrays that are not used later.
 	- Status : Solved
+- [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
+	- Concepts : #Recursion #DynamicProgramming 
+	- Approach : 
+		- Used recursion to try if a value should be included or not in curSum. If at any point curSum > total/2 then return false.
+		- Tried using prefix sum and suffix sum for each index, and then running a for loop for i, j through array to see for all combinations of index, id prefix[i] + suffix[j] = total/2. But the problem here is, it requires continuous sub-sections to work. 
+		- Used a dp[][] where first index is index of array, and second is all the sums possible for the index, This was we use the sums computed before to compute all possible sums for this index. That way we can get the state remembered.
+	- Optimal Approach:
+		- Use a 1 D array dp to keep track of state of ind, curSum. As for each ind thats what matters, all the sums you have before it, and what all this can lead to. So we use dp cause in recursion, we are repeating many paths for same curSum, but the path to use is irrelevant. Hence we use dp. Initally only dp[0] is true. and the dp array length is dp[target+1] where target = totalSum/2 cause we have only positive value and values larger than that is of no use to us. Then for ind, we iterate from target-nums[i] to 0, so we update curSum but each iteration updated values are not re updated. If it any instace we get j+nums[i] = target, we return true. Outside dp loops, we return false.
+	- Learnings:
+		- Used a float to get exact value so round off doesn't cause sum to become equal.
+	- Status : Solved
 
 
 

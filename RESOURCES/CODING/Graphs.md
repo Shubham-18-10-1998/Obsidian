@@ -99,7 +99,20 @@ Problem here is that if the graph is sparsely connected, then a lot of space is 
 			- map.computeIfAbsent(key, n -> newValue for key)
 		- In optimal solution, we have to add clone only first time encountered, not when visited.
 	- Status : Solved
-
+- [Accounts Merge](https://leetcode.com/problems/accounts-merge/)
+	- Concepts : #Graphs #BFS #Maps #Sets #Sorting #Collections 
+	- Approach : Initially tried using a hash-map to make groups, and then checked if there were any matches. But this approach doesn't work cause we also need to account for transitive merges, ie. a->b and b->c then we link a->c also in some way. Hence we need to use graphs. We choose one email to be primary, Now each node is connected to primary and primary to each node. (they are present in each others children). This was when we add their edges we can traverse the connected components completely. Then this was we merge, accounts, if no match we make first email primary and then add others to it and vice versa (for child add primary). If match is there, first match is made primary. We also maintain, hash-set to see if this email already exists, and a map to fetch node for each email. Once this is done, we then go to each map entry in name, List of node, and then we get the account, sort it and then give result.
+	- Learnings :
+		- Because of these transitive connections, we needed graphs.
+		- Each node also has a visited in it, which helps us during BFS.
+	- Status : Solved
+- [Multi Source Flood Fill](https://leetcode.com/problems/multi-source-flood-fill/)
+	- Concepts : #BFS #Graphs 
+	- Approach : We use BFS to add neighbours for each colour. Initially to q all sources are added, and we keep timer at 0, now we do BFS using level traversal. This way we can keep track of timer for each point to see if its same time or not. Then when popping from the queue, we pop the point, first check if timer<=time for that given point, if yes, then we check if its unchecked point or ifs color is less that current point, then we give it the current color, or else skip. We use a addDirection function to add directions for each point.
+	- Learnings:
+		- For improvement, we add the colours with node, and also their time for neighbours. But before processing and adding neighbours, we check if its the correct color. This way we gurantee only the right color neighbours propogate.
+		- Suggestion was to add from time of parent, this way its fine we don't need the level order traversal of BFS. This reduces the need for us to maintain the time on the level. The base idea is the same, update the queues when encountered, so that later on you can prevent using the wrong colour states.
+	- Status : Solved
 
 
 https://leetcode.com/problems/rotting-oranges/description/ 
