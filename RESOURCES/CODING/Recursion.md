@@ -50,6 +50,11 @@ Recursion means to use a repeated call to the same function with some base condi
 	- Learnings:
 		- Used a float to get exact value so round off doesn't cause sum to become equal.
 	- Status : Solved
+- [Subsets](https://leetcode.com/problems/subsets/)
+	- Concepts : #Recursion #Iteration #Bit-Manipulation 
+	- Approach : Use iteration to iterate through list previously maintained and then add this to all of them, this generates the subsets. Also before iterating through list for each element get size or else it will be ever growing.
+	- Learnings : You can use the logic of binary representation, of a number thats having each element of array representing one of the digits. now based on one and zero in that number, we can decide what digits to add.
+	- Status : Solved
 
 
 

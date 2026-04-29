@@ -81,6 +81,7 @@ Problem here is that if the graph is sparsely connected, then a lot of space is 
 	- Approach : Use a sort of topological sort where each 2 influences its neighbours and makes them 2, and at each time while using a q for level order traversal in BFS, use a q.length before strting popping to keep track of time as only immediate nighbours becomes two at a given second of operation.
 	- Learnings:
 		- A mix of topological sort and BFS level order traversal.
+		- The method works because even if we make multiple entries on the same level only the time matters and that cannot be affected by this. Also populating same thing at multiple levels is not possible because once 2 changed, we don't add it agin to queue. 
 	- Status : Solved
 - [Flood Fill](https://leetcode.com/problems/flood-fill/)
 	- Approach : Use the sr, sc as original src and traverse with BFS and change color if its the same as the original color of sr,sc index

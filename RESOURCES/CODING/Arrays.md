@@ -113,3 +113,8 @@ Continuous block of memory that stores some homogenous kind of data.
 	- Status : Solved
 	- Other similar problems -
 		- Insert Interval, Meeting Rooms, Non-overlapping Intervals
+- [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
+	- Concepts : #Matrix 
+	- Approach : We use two functions, one to iterate row, and another to iterate the columns. We keep a vis array to track already visited points and a rowCount and colCount so that we can track if the propagation direction is forward or backward. For this i used -1 to the power of count, as it switched from 1 to -1 which is what we need to add to ind. Other than that, we updateCount after every use and also use this to determine starting index fort he next call ie. row -> col and col->row. To help break the loop, we check if the index now is valid and not already visited.
+	- Optimal Approach : We can use just col_left, col_right, row_top, row_bottom to define the limits and avoid vis array all together and use the one loop to iteratively fill it out. Also we need to check if our ind now is an already visited segment, then we break.(helps in rectangle matrices).
+	- Status : Solved
