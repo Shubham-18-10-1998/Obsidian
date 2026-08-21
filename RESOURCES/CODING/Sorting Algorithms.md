@@ -1,10 +1,24 @@
+# Bubble Sort
+- Works by bubbling the greatest element in the array in consideration in the current iteration to the end.
+- We do n-1 iterations as sorting n-1 elements from the back sorts the whole array.
+- Code Reference :
+	- [Bubble Sort Code](https://www.geeksforgeeks.org/problems/bubble-sort/1)
+
+# Selection Sort
+- Works by finding the smallest element in the sub-array and swapping it to the beginning of the sub-array.
+- We do n-1 iterations because n-1 sorted elements from the font in the array means all elements are sorted.
+- Note : 
+	- Logically seems like the opposite of bubble sort, but here we select the min element in the unsorted part of the array and swap only once, however in bubble sort we do multiple swaps to reach the outcome of placing the largest element of the unsorted array in the end of it.
+- Code Reference :
+	- [Selection Sort Code](https://www.geeksforgeeks.org/problems/selection-sort/1)
+
 # Merge Sort
 - Split into 2 part recursively till 1 length achieved.
 - The merge to get sorted array in backtrack call area from two child smaller sorted arrays.
 - Do implementation
 
 ## Time complexity
-As we go down n steps, and each step the merging takes O(n) as never we have more than n elements, the complexity becomes n * log(N). Hence time complexity is O(nlogn(n)).
+As we go down n steps, and each step the merging takes O(n) as never we have more than n elements, the complexity becomes n * log(N). Hence time complexity is O(n.logn(n)).
 
 
 # Quick Sort

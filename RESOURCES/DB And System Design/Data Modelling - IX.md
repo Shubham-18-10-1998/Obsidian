@@ -26,7 +26,7 @@ Assume :
 				- Memory (CPU memory / registers) -> 10^8
 				- IO operations -> 10^5
 				- Network -> 10^2  
-			- 10^8 operations means that many CPU cycles exisit. One tick of CPY clock is one operation, and that clock ticks 10^8 times in one sec.
+			- 10^8 operations means that many CPU cycles exisit. One tick of CPU clock is one operation, and that clock ticks 10^8 times in one sec.
 			- CPU has its own memory. Secondary memory isnt directly accessible to the CPU
 			- For I/O it reduces to 10^5 operations cause a lot of memory gone in setting up the 
 			- Any network call which takes 10ms is best 
@@ -50,7 +50,7 @@ Query :
 Index tables only has that col's data
 
 col.value + reference to the actual page having that data row.
-so the hashed value (of the column is put generally) -> we get the age, and then the whole page feched and we do a Full Table Scan
+so the hashed value (of the column is put generally) -> we get the age, and then the whole page fetched and we do a Full Table Scan
 
 Exception : Clustered Index  -> (index, complete row) stored
 
@@ -77,9 +77,11 @@ Options :
 	- Index Scan : Partial Index, based on order of index. since employee_name first, then we get index scan
 	- But, when we do filter based on salary, we cant use partial index from here.
 - **Note: Thus order does matter in index. **
-- **Thus most frquently used columns be put first in the index**
-	
+- **Thus most frequently used columns be put first in the index**
 
+
+# Related Concepts
+[[CPU concepts and Indexing In-Depth]]
 
 Learn 
 Select, order_by, aggregate, joins (Basic Queries)

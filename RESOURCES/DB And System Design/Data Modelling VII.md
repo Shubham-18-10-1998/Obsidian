@@ -117,10 +117,54 @@ Here then we have transformation , that converts the byte to human readable data
 Parse -> Validate -> Re-Write -> Optimise -> Execution -> Fetch and Return.
 
 - **Parse** → syntax check
+	- This is like a checing your grammar. Are the spelling of keywords correct, etc. This generates the **Parse Tree OR Syntax Tree**
+	- This is how the parse tree is
+		- SELECT
+		 └── name
+		   FROM
+		 └── employees
+		   WHERE
+		 ├── department = 'Engineering'
+		 └── salary > 100000
+	-         SELECT
+	       /   |    \
+	name  FROM  WHERE
+	        |            |
+        employees   >
+                  /      \
+             salary    100000
+     This is the parse tree. This is needed becasue
+     - Standard internal format for SQL because DB needs structure and this helps it convert Text -> Structured Data
+     - Optimisation works on this tree. The examples of transformation are
+	     - Push filter earlier
+	     - Reorder Joins
 - **Analyze/Validate** → tables, columns, permissions
+	- Checks if the given columns even exist and if we have the permissions for them.
+	- Matching data types is done here.
 - **Rewrite** → simplify query
+	- Rewrites the query so it has better structure but in equivalent form.
+	- Applies **Rule based transformation**. Here
+		- Rearranged expressions, 
+		- Simplified expressions
+		- Covert subqueries -> join (in complex queries)
+	- eg:
+		- People in Engineering earning > 100K instead of people earning > 100k and in engineering.
 - **Optimize** → choose execution plan
+	- Here database considers multiples ways to execute the query 
+	- Chooses the cheapest one using a cost model.
+	- eg.
+		- Scan entire table is slow
+		- Use index on department = engineering
+			- then filter salary > 100k is faster.
+	- Its like Google maps having multiple routes but using the cheapest fastest one based on traffic. 
 - **Execute** → run plan
+	- Here plan executed step by step.
+	- Data fetched from disk in memory.
+	- eg.
+		- Use index on department = engineering
+		- filter those rows by salary > 100K
+		- Extract name column
+	- Here the B-Tree + Memory is used to get the data.
 - **Return** → send result
 
 
