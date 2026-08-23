@@ -31,6 +31,25 @@ Conceptually:
 
 It maintains a contiguous array and grows when necessary.
 
+                 ArrayList
+                    |
+             Dynamic Array
+                    |
+        ┌───────────┴───────────┐
+        ↓                       ↓
+    size                    capacity
+(actual elements)                       (allocated space)
+
+        Dynamic Array
+             ↓
+      Fast random access
+             ↓
+          O(1) get
+             ↓
+    Expensive middle insertion
+             ↓
+           O(n)
+
 ### Time Complexity
 
 | Operation | Typical Complexity |
@@ -85,6 +104,17 @@ For a doubly linked list:
     A <-> B <-> C <-> D
 
 Each node contains references to the previous and next node.
+
+      Nodes + pointers
+             ↓
+     No random access
+             ↓
+          O(n) get
+             ↓
+    Fast insertion/deletion
+         if node reference exists
+             ↓
+            O(1)
 
 ### Time Complexity
 
@@ -185,6 +215,22 @@ A hash function converts the key into a bucket/index.
     bucket
      ↓
     value
+
+HashMap
+   ↓
+hashCode()
+   ↓
+hash function / bucket index
+   ↓
+collision
+   ↓
+collision resolution
+   ↓
+load factor
+   ↓
+resize / rehash
+   ↓
+Java HashMap treeification
 
 ### Average Complexity
 
