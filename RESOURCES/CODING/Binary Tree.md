@@ -91,4 +91,14 @@ A tree which has a child node as a root. So hence structure of tree becomes node
 	- Optimal Solution : 
 		- base idea is that when we encounter p or q,  return it, and use this as signals to know we have found them or they a null to show we have not found them. Now whenever left and right return non-null, it means that this node is LCA cause that means that left had p and right had q or vice versa OR one side has the needed LCa and that gets propagated upwards. The returning also reduces further costs ie. in case the other node is a child of this node found first, then the LCA is the node found first.
 	- Status : Solved
+- [Iterative Preorder Traversal](https://www.geeksforgeeks.org/problems/preorder-traversal-iterative/1)
+	- Concepts : #Stack #BinaryTree #BinaryTreeTraversal
+	- Solution : Here since we have to do it iteratively, we use an explicit stack so we can perform the traversal. One important cavaet is while inserting into the stack, we insert the right child first and then the left, so that in the pop, we get the left child first to process based on the LIFO principle of stack.
+	- Learnings:
+		- ArrayDeque doesn't allow the insertion of null elements.
+	- Status : Solved
+- [Iterative Inorder Traversal](https://www.geeksforgeeks.org/problems/inorder-traversal-iterative/1)
+	- Concepts: #Stack #BinaryTree #BinaryTreeTraversal 
+	- Solution: Here we have to exp0lore the left tree as far as its child is not null. Once we find out its null, that means the node is ready to be processed. Then we check if node.right != null. if it isnt, we add it to stack and continue the above process. Or else while tis null. this sub-tree is processed and the parent is ready to be processed.
+	- ![[IMG_0059.heic]]
 

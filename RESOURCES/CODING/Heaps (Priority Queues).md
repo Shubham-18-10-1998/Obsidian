@@ -15,6 +15,14 @@ Heapify Up / Heapify Down
         ↓
 O(log n)
 
+Repeated insertion:
+    O(n log n)
+
+Bottom-up build-heap:
+    O(n)
+
+Why?
+Most nodes are near the bottom and can only move a few levels.
 
 
 # Heap & PriorityQueue — Interview Notes
@@ -675,6 +683,313 @@ Complexities:
 14. Think Heap when you need repeated min/max access.
 
 15. The reason for O(log n) is the height of the Complete Binary Tree.
+
+# Heap Construction — Build Heap
+
+## 1. Two Ways to Build a Heap
+
+There are two different approaches:
+
+### Approach 1: Insert elements one by one
+
+Start with an empty Heap:
+
+    add(element)
+    add(element)
+    add(element)
+    ...
+
+Each new element:
+
+    1. Goes to the next available position.
+    2. May need to Heapify Up.
+
+A single insertion can cost:
+
+    O(log n)
+
+Doing this for `n` elements:
+
+    O(n log n)
+
+Therefore:
+
+    Build Heap using repeated insertions → O(n log n)
+
+---
+
+## 2. Approach 2: Bottom-Up Build Heap
+
+If we already have an array:
+
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+we don't need to insert each element individually.
+
+Instead:
+
+    1. Treat the array as a Complete Binary Tree.
+    2. Start from the last non-leaf node.
+    3. Heapify Down.
+    4. Continue moving toward the root.
+
+This is called:
+
+    Bottom-Up Heap Construction
+
+or:
+
+    Build Heap / Heapify
+
+Complexity:
+
+    O(n)
+
+---
+
+# 3. Why is Bottom-Up Build Heap O(n)?
+
+This is initially counterintuitive because:
+
+    Heapify Down can take O(log n)
+
+However, NOT every node takes O(log n) work.
+
+The amount of work depends on how far the node is from the bottom.
+
+---
+
+## 4. Most Nodes Are Near the Bottom
+
+Consider a Complete Binary Tree.
+
+Approximately:
+
+    n/2 nodes → leaves
+    n/4 nodes → 1 level above leaves
+    n/8 nodes → 2 levels above leaves
+    n/16 nodes → 3 levels above leaves
+    ...
+
+The leaves have:
+
+    0 children
+    → 0 work
+
+Nodes one level above the leaves can move at most:
+
+    1 level
+
+Nodes two levels above can move at most:
+
+    2 levels
+
+Nodes three levels above can move at most:
+
+    3 levels
+
+The root is the only node that can move:
+
+    O(log n) levels
+
+---
+
+# 5. Rough Work Distribution
+
+The total work looks approximately like:
+
+    n/2 × 0
+    +
+    n/4 × 1
+    +
+    n/8 × 2
+    +
+    n/16 × 3
+    +
+    ...
+    +
+    1 × log n
+
+The important intuition is:
+
+    Many nodes → very little work
+    Few nodes → more work
+    Very few nodes → lots of work
+
+The total adds up to:
+
+    O(n)
+
+---
+
+# 6. Why Isn't It O(n log n)?
+
+A common mistake is:
+
+    n nodes
+    ×
+    O(log n) per node
+    =
+    O(n log n)
+
+This reasoning would be appropriate if every node could require O(log n) work.
+
+But in bottom-up heap construction:
+
+    Most nodes cannot travel O(log n).
+
+For example:
+
+    Leaves:
+    n/2 nodes × 0 work
+
+    One level above:
+    n/4 nodes × 1 work
+
+    Two levels above:
+    n/8 nodes × 2 work
+
+    Root:
+    1 node × log n work
+
+Therefore the total is:
+
+    O(n)
+
+---
+
+# 7. Important Comparison
+
+## Repeated Insertion
+
+    Start with empty Heap
+
+    add()
+    add()
+    add()
+    ...
+
+Each element starts at the bottom and can Heapify Up.
+
+    n insertions
+    ×
+    O(log n)
+
+Therefore:
+
+    O(n log n)
+
+---
+
+## Bottom-Up Build Heap
+
+    Start with existing array
+
+    Heapify Down from bottom toward root
+
+Most nodes are near the bottom.
+
+Therefore:
+
+    O(n)
+
+---
+
+# 8. Example
+
+For approximately `n = 16` nodes:
+
+    8 nodes × 0 levels
+    4 nodes × 1 level
+    2 nodes × 2 levels
+    1 node  × 3 levels
+
+Approximate work:
+
+    8×0 + 4×1 + 2×2 + 1×3
+
+    = 0 + 4 + 4 + 3
+
+    = 11
+
+This is much closer to O(n) than O(n log n).
+
+---
+
+# 9. Key Interview Explanation
+
+If asked:
+
+    "Why is building a Heap O(n)?"
+
+A good answer:
+
+> Bottom-up heap construction starts from the last non-leaf nodes and heapifies downward. Most nodes are near the bottom and can only move a small number of levels, while only a small number of nodes near the root can move many levels. Therefore, the total work across all nodes is O(n).
+
+---
+
+# 10. Complexity Summary
+
+| Operation | Complexity |
+|---|---:|
+| Insert one element | O(log n) |
+| Build Heap using n insertions | O(n log n) |
+| Build Heap from existing array | O(n) |
+| Heapify Up | O(log n) |
+| Heapify Down | O(log n) |
+| Peek min/max | O(1) |
+| Remove min/max | O(log n) |
+
+---
+
+# 11. Mental Model
+
+Remember:
+
+    Repeated insertion:
+
+        Empty Heap
+             ↓
+        Insert one-by-one
+             ↓
+        Heapify Up
+             ↓
+        O(n log n)
+
+
+    Bottom-up construction:
+
+        Existing Array
+             ↓
+        Complete Binary Tree
+             ↓
+        Heapify Down
+             ↓
+        Most nodes do very little work
+             ↓
+        O(n)
+
+---
+
+# 12. Most Important Takeaway
+
+Do NOT think:
+
+    "Heapify is O(log n), therefore building a Heap is O(n log n)."
+
+Instead ask:
+
+    "How many nodes actually perform O(log n) work?"
+
+Answer:
+
+    Very few.
+
+Most nodes are near the bottom and do very little work.
+
+Therefore:
+
+    Build Heap from an existing array → O(n)
 
 
 # Problems 
