@@ -100,5 +100,5 @@ A tree which has a child node as a root. So hence structure of tree becomes node
 - [Iterative Inorder Traversal](https://www.geeksforgeeks.org/problems/inorder-traversal-iterative/1)
 	- Concepts: #Stack #BinaryTree #BinaryTreeTraversal 
 	- Solution: Here we have to exp0lore the left tree as far as its child is not null. Once we find out its null, that means the node is ready to be processed. Then we check if node.right != null. if it isnt, we add it to stack and continue the above process. Or else while tis null. this sub-tree is processed and the parent is ready to be processed.
-	- ![[IMG_0059.heic]]
+	- ![[Diagram.png]]
 
