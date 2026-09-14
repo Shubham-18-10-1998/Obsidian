@@ -1,3 +1,6 @@
+# Graph Theory
+[[Graphs Theory]]
+
 # Introduction
 Nodes and edges are there in graphs.
 They are nodes with a random assortment of connections between them.

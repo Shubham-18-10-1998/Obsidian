@@ -10,6 +10,35 @@ In-order traversal is sorted sequence of values in the tree
 Worst case Time Scenario - O(N)
 Average case Time Scenario - O(log(N))
 
+Balanced:
+
+        8
+      /   \
+     3     10
+    / \      \
+   ...       ...
+
+height ≈ log n
+        ↓
+search ≈ O(log n)
+
+
+Skewed:
+
+8
+ \
+  10
+    \
+     14
+       \
+        20
+          \
+           ...
+
+height ≈ n
+        ↓
+search ≈ O(n)
+
 ## Problems
 - [Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 	- Concepts - #BST #Recursion 
@@ -24,6 +53,8 @@ Average case Time Scenario - O(log(N))
 			- isValid(treeNode root node, long min, long left)
 			- validate left subtree -> isValid(node.left, min, node.val)
 			- validate right subtree -> isValid(node.right, root.val, max);
+			- Bottom-Up Approach : For the range approach, each child returns to its parents its min, max int[] array. Then the parent uses it to validate if its a BST, as root > left.max and root < right.min. This should always be true. If not then its not a BST. if it is true, then we update the ranges, left.min and right.max and then we send those from the parent.
+			- Top-Bottom Approach : The parents supply their max and min to children nodes and they are then are validated to lie within those ranges, or else they return false which id propagated back upwards.
 	- Learnings : Can also use property of BST that In-order traversal is strictly increasing
 	- Status : Solved
 - [Trim a Binary Search Tree](https://leetcode.com/problems/trim-a-binary-search-tree/)
@@ -34,6 +65,25 @@ Average case Time Scenario - O(log(N))
 	- Status : Solved
 - [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
 	- Approach : Use binary search mid to decide the node for tree. Them recursively the left side mid and right side mid will be the children nodes. This recursively working on sections of the array generates the height balanced optimal BST as we are splitting in approximately equal halves which is needed for height balanced BST. 
+	- Status : Solved
+- [Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/)
+	- Concepts : #Recursion #BST 
+	- Approach : In a Binary Search tree, if we want to delete a node, then ideal way is to replace it with the val of its smallest right sub-child. This is because its smaller than all the other right children, and greater than all left children. However there are cases that rise up:
+		- If the node.right == null, then root can just become root.left;
+		- If node.right != null, then let cur = node.right
+			- if cur.left == null, then cur.left = node.left and return cur;
+			- Else find the smallest node. and then, prev.left = smallest_node.right. We do this because for the smallest node, we know it cannot have a left child, however it not having a right child is not guaranteed. and finally root.val = smallest.val;
+		- Else during recursion when finding the node, use the BST logic, 
+			- root.left = deleteNode(root.left, val); (when root.val > val)
+			- root.right = deleteNode(root.right, val); (when root.val < val)
+	- Status : Solved
+- [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+	- Concepts : #BinaryTreeTraversal #Recursion #Stack 
+	- Approach :
+		- Recursion : Use the in-order traversal to get the sorted array and from that array we can return the k-1 index element as its 1 indexed array based on the problem.
+		- Iterative : We use the iterative in-order traversal to see how many nodes we have processed and when k == count of processed nodes, we return cur.val. For iterative traversal refer to : Iterative in-order traversal in Binary Tree notes.
+	- Optimisations:
+		- We can use a counter to know we have k values and then stop looking for an answer. This reduces the auxiliary space required.
 	- Status : Solved
 
 
