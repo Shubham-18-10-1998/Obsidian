@@ -71,6 +71,20 @@ A class with information
 	- Learnings :
 		- Here first middle is needed, so logic changes slightly from second middle problem, so keep that in mind.
 	- Status : Solved
+- [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+	- Initial Approach : Add the value for the node, keep a variable for carry and keep traversing.
+	- Learning : 
+		- For pointers in cpp
+			- *int ptr = 5, means that ptr is variable that stores the address for integer with value 5;
+			- An alternate way is, int val = 5, int* ptr = &val, where now ptr holds the address for variable val, which is same as eg. 1 but with additional steps.
+		- Initialising each time slows the code drastically.
+		- Keep a prev pointer which points to pen-ultimate node, if no carry is there, then prev->next is nullptr, or else cur->val = 1; Cause we constantly iterate to new node to allow to store val respectively, this handles the last node value cases.
+- [LRU Cache](https://leetcode.com/problems/lru-cache/)
+	- Concepts : #HashMaps #DoublyLinkedList 
+	- Approach : So we use a combination of Doubly Linked List and Hash-Map to implement this problem. The doubly linked list helps maintain the order of usage and the tail of it or LRU is the value to be discarded in case we are at capacity and a new value is added. The Hash-Map helps us remove the values and find the node to operate on in O(1) average time to satisfy the question asks. Also the doubly linked list helps cause it provides the prev as well so we can remove the node and then join its neighbours in O(1) time and move the node to the head in case of access to make it the most recently used value.
+	- Learnings :
+		- Keep track of what pointers are being updated and when and how.
+	- Status : Solved
 
 
 Questions -

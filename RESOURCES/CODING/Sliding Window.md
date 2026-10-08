@@ -41,6 +41,11 @@ Problems -
 - [Find the K-Beauty of a Number](https://leetcode.com/problems/find-the-k-beauty-of-a-number/)
 	- Initial Approach : Use log10 to find value of digit to calculate curNum and then accordingly divide by num.
 	- Learning : Functions like Integer.toString(num) to convert to String. Also use of Integer.parseInt(str) to convert string to integer. Also used these function to use as string, find substring and accordingly solve the problem
+- - [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+	- Concepts : #Monotonic-Queue #SlidingWindow
+	- Approach : We maintain a monotonic queue as we iterate through the array, and then we remove the elements as long as they are smaller or equal to the new value as now they can no longer be candidates to be the largest in their respective window.
+	- Learnings : When using monotonic stack or queues, as each element is utmost processed once in it, the complexity for it stays O(1). And hence it doesn't make the complexity for the problem O(n^n) because the queue is getting maintained too.
+	- Status : Solved
 
 
 

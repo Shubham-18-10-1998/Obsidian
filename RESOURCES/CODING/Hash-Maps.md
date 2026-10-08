@@ -677,6 +677,19 @@ The goal is:
 		- For Iterator i.next() returns Object. So to resolve this, we make Iterator<Pair<String, Integer>>. And then use i.next() once to get the pair we are on now. And then use the values to compare.
 	- Optimal Solution : We store the values as map<key, List<Pair<Integer, String>>. This was we can use binary search to utilise the constraint that values are strictly increasing.
 	- Status : Solved
+- [LRU Cache](https://leetcode.com/problems/lru-cache/)
+	- Concepts : #HashMaps #DoublyLinkedList 
+	- Approach : So we use a combination of Doubly Linked List and Hash-Map to implement this problem. The doubly linked list helps maintain the order of usage and the tail of it or LRU is the value to be discarded in case we are at capacity and a new value is added. The Hash-Map helps us remove the values and find the node to operate on in O(1) average time to satisfy the question asks. Also the doubly linked list helps cause it provides the prev as well so we can remove the node and then join its neighbours in O(1) time and move the node to the head in case of access to make it the most recently used value.
+	- Learnings :
+		- Keep track of what pointers are being updated and when and how.
+	- Status : Solved
+- [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+	- Concepts : #Hash-Table #Strings
+	- Approach : We use a map of List of Integer, List of Strings as our main map. Because for list the equals and hashCode function depends on the content, we can use the freqMap as an identifier to see if its already been encountered and allows to group the anagrams together.
+	- Learnings :
+		- The equals and hashCode for List uses the contents , and reference being different doesn't matter.
+		- to convert int[] arr to List we use Arrays.stream(arr).boxed().toList() however to convert list of list to int[][] we use list.toArray(int[][]::new);  
+		- for iterating through map we use Map.Entry in triagle brackets KeyType, ValueType entry : map.entrySet() and then use entry,getKey() and entry.getValue()
 
 Questions : 
 

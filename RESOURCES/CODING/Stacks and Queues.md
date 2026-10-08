@@ -46,6 +46,10 @@
 			- .intValue()
 			- (int)(long)
 	- Status : Solved
+- [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+	- Concepts : #Stack #Monotonic-Stack
+	- Approach : We start iterating from the back and use a stack to maintain the temperatures hotter than current day and its in index. We pop the values till we find a greater value and the use that to populate the results. If the stack is empty then there are no warmer days and hence result is 0. This approach works because we push the current element once its greater is populated. Now any value that is lesser than this can get satisfied by the current value, however if its larger than this value only values that are candidates to be larger are allowed, and hence the monotonic stack helps.
+	- Status : Solved
 
 
 
@@ -64,6 +68,11 @@
 	- Approach : We need two stacks to implement a queue. One to insert. to view and pop, we need another so we can FIFO as stack is LIFO and we need to reverse it.
 	- Learnings :
 		- In case of pop() and peek() we never need to refill insert as its just for adding new element and have to transfer whenever out /viewPop is empty
+	- Status : Solved
+- [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+	- Concepts : #Monotonic-Queue #SlidingWindow
+	- Approach : We maintain a monotonic queue as we iterate through the array, and then we remove the elements as long as they are smaller or equal to the new value as now they can no longer be candidates to be the largest in their respective window.
+	- Learnings : When using monotonic stack or queues, as each element is utmost processed once in it, the complexity for it stays O(1). And hence it doesn't make the complexity for the problem O(n^n) because the queue is getting maintained too.
 	- Status : Solved
 
 # Questions

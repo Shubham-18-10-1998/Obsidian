@@ -14,6 +14,7 @@
 ## Composition
 Very strong relationship. If a human dies, heart wont exist. There is a strong dependence on existence relationship.
 - **Has a** relationship
+- Has instance variable of the dependant class.
 
 
 ## Aggregation
@@ -36,8 +37,10 @@ Ideal guidelines which should be followed.
 ## SOLID Principles
 - Single Responsibility
 	- Each class should have only 1 reason to change. That is it should have one functionality. One functionality doesn't mean one function. This applies to only classes as interfaces anyway don't have implementation.
+	- Helps have loose coupling as then class has fewer dependencies.
 - Open Closed Principles
 	- Valid when supporting more things with existing features, doesn't also support adding new functionality as then modification will be needed.
+	- Done by programming to an interface
 	- Classes are open to extension but closed for modification. If we want to add functionality, extend the class instead of modifying it. Hence to follow this, we need to follow Leskov Substitution Principle.
 		- Why follow Leskov?
 			- As to achieve modularity, we need abstraction. And that is achieved by using interfaces / abstract classes. But when we do that, all child classes should implement the functionalities defined by parent class and this is what Leskov demands.
@@ -86,7 +89,7 @@ They are all cross related.
 	- Final Solution
 		- PREFER COMPOSITION OVER INHERITANCE
 		  ENCAPSULATE WHATEVER CHANGES
-		- Make behaviour, and then use inheritance for specific variation for each behaviour , and then can compose parent with behaviours.
+		- Make behaviour, and then use inheritance for specific variation for each behaviour , and then can compose parent with behaviours. : Strategy Design Pattern
 			- Here run-time injection, as once we create object, we later also have flexibility to change behaviour. No longer restricted. 
 
 

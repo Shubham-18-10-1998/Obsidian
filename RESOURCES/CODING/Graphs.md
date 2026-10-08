@@ -72,6 +72,8 @@ Problem here is that if the graph is sparsely connected, then a lot of space is 
 		- You have to use all neighbours(up, down, right, left), because my condition for updating island is when i find isolated ones. 
 		- i is the y coordinate and j is the x coordinate in a i-j iterating loop. 
 		- Make sure the conditions for addingNeighbours use >= 0
+		- The way to instantiate a 2-D array is : int[][] name = {{1, 2, 3, ..}, {1, 2,..}, { 2, 3, ..}, .. {1, 2 , ..}}
+		- The way to instantiate an array we are returning is return new int[]{1, 5, ..}
 	- Status : Solved
 - [Max Area of Island](https://leetcode.com/problems/max-area-of-island/)
 	- Approach : Use BFS or DFS to search for 1 and then explore nearby islands. In this isolated graphs are 1 island and adding instead of adjacency list, use neighbours. For each island use area of it, and compare with curMax. Make the addNeighbours return the addedArea to keep track of the island area when adding graph vertex.
@@ -88,6 +90,8 @@ Problem here is that if the graph is sparsely connected, then a lot of space is 
 	- Status : Solved
 - [Flood Fill](https://leetcode.com/problems/flood-fill/)
 	- Approach : Use the sr, sc as original src and traverse with BFS and change color if its the same as the original color of sr,sc index
+	- Optimisations :
+		- We don't need a visited[][] here because we can use the originalColor as the mark of unvisited and when we go the the point we can update the color and that makes it as visited.
 	- Status : Solved
 - [01 Matrix](https://leetcode.com/problems/01-matrix/)
 	- Approach : Used recursvie BFS in the sense at every 1 that i get, add only its neighbours, and if it is a 1, and if its unvisited, then i apply bfs, or else, i uses it value and then try computing the min for current value. 
@@ -117,11 +121,52 @@ Problem here is that if the graph is sparsely connected, then a lot of space is 
 		- For improvement, we add the colours with node, and also their time for neighbours. But before processing and adding neighbours, we check if its the correct color. This way we gurantee only the right color neighbours propogate.
 		- Suggestion was to add from time of parent, this way its fine we don't need the level order traversal of BFS. This reduces the need for us to maintain the time on the level. The base idea is the same, update the queues when encountered, so that later on you can prevent using the wrong colour states.
 	- Status : Solved
-
-
-https://leetcode.com/problems/rotting-oranges/description/ 
-
-https://leetcode.com/problems/surrounded-regions/description/
+- [Iterative DFS for graphs](https://www.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1)
+	- Concepts : #Stack #RecursionSimulation 
+	- Approach : We add the current node and to the top of the stack if its un-visited, and then the loop checks for un-visited nodes they are marked visited and printed, and then we check its neighbours. However if its already visited, we only need to check its neighbours, and then we continue the process. However if all neighbours are iterated over and there are no un-visited nodes, then we are safe to pop it.
+	- Learnings :
+		- The for loop which checks the neighbours, where initially i was putting the continue wont work cause its supposed to continue for the while loop. hence we should first break from it, and then use the flag to see if we are continuing,
+	- Status : Solved
+- [Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
+	- Concepts : #Stack #DFS #Graphs 
+	- Approach : We iterate through the all starting points namely 0->V-1 where V is the number of nodes. We then do a DFS to find all the connected sections and thus constitute a province. Once thats done, the outer loop when it finds a not visited and hence disconnected node from the currently visited connected components, we have encountered the starting point of the new a new province and hence result is incremented.
+	- Learnings :
+		- When pushing onto the stack, we can mark the node as visited, as then when tis encountered again by another node, we don't add it to the stack again.
+	- Status : Solved
+- [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+	- Concepts : #Graphs #DFS #BFS 
+	- Approach :
+		- Graph Solution : So for this problem we create a graph by maintaining an adjacency list. Before each edge is added, we first do a DFS from the node1 and try seeing if node2 is reachable, cause then adding an edge from node1 -> node2 creates a cycle. 
+			- Complexity : O(E*(V+E))
+		- Union Find My Implementation : So you maintain a parent int[] which holds the root parent of current node. Thus the find(node) becomes essentially parent[node]. For the union(node1, node2), we iterate through the parent array and update the value of all nodes having parent[node] == parent[node2] to be parent[node1]. This was the root of the now connected components is maintained. and thus when an edge is encountered where parent[node1] == parent[node2], since they are already connected this node creates a cycle and hence we can return this edge.
+			- Complexity : O(N^2)
+			- Leanings : In the union function when iterating also have the condition i != node2 cause during the iteration we dont want to change the parent[node2] as then other children not encountered yet will not be updated. and hence after the loop, the parent[node2] is updated to be parent[node1]
+		- Find with Path compression and Union : Here we use a find(x) function which finds the root till the condition where parent[cur] != cur. However in the process i also add these nodes to a list and later for all update their parent to the root. Union now just updates the parent[parent[node2]] = parent[parent[node1]]. because the find thats called before already does path compression and thus now for the nodes1, and node2, their parents are the root.
+	- Learnings :
+		- Initially tried using the logic that if both nodes in an edge are already visited, then it must be the node causing the cycle to be formed, but thats not the case cause the two edges might be parts of two dis-connected parts of the graph and now are providing a join between the two. Hence wrong
+	- Status : Solved.
+- [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/)
+	- Concepts : #ReverseTraversal #BFS #Graphs 
+	- Approach : So the important detail here is to understand its better to do the reverse approach of seeing if that ocean can reach a point. This way we need to add it only once, to the queue, Whereas if we were doing it the other way round, we woudn't know if i reach a point is that point already reached by ocean and the way to mark a point reached would be harder. Also i would then have to do traversal for each point again and again to see if it reached the ocean which this avoids.
+	- Learnings :
+		- The most crucial part is understanding that reversing the way of doing things greatly simplifies things
+- [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
+	- Concepts : #Union-Find 
+	- Approach : For a tree we have two conditions : 
+		- There shouldn't be disjoint graphs.
+		- There should be no cycles.
+		- Thus we use the union-find to keep track of parents for each node, and ultimately we also iterate through the nodes to see if they all have a common parent to ensure there are no disjoint graphs.
+	- Status : Solved.
+- [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)
+	- Concepts : #BFS 
+	- Approach : We traverse from the edges from any 'O' and mark all the connected nodes as visited. Then later we traverse the board again, and if we find any un-visited 'O' we flip them all as these don't connect to the edges which is the condition to ensure not surrounded. 
+	- Learnings :
+		- In BFS, always mark the nodes as visited when pushing into the q.
+	- Status : Solved.
+- [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
+	- Concepts : #DFS #HierholzerAlgorithm #Graphs 
+	- Approach : So initially you create anode class that has an index to iterate through the destinations from current node. This makes them get used only once.  Also we then sort the destinations for each node to get them lexicographically sorted. Then we do a DFS on the graph using a stack and append the node only when its index is equal to its destinations.size cause in post order this means it children have been explored and the parent can be explored. Thus we get our answer in the reverse order and we have to reverse this array to get the correct answer.
+	- Status : Partially Solved
 
 
 # Topological Sort
@@ -141,6 +186,21 @@ https://leetcode.com/problems/surrounded-regions/description/
 		- Use int[] for inDegree map as we have integer keys ranging from 0 to numCourses-1.
 		- Also can use count to keep track of courseTaken instead of list where courseTaken is added.
 	- Status : Solved 
+- [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
+	- Concepts : #Graphs #TopologicalSort
+	- Approach : We use a similar approach to course schedule where we maintain an inDegree array to see what courses have indegree == 0 and then accordingly add them to the queue. We also maintain a graph using array of List of integer where for each element, tis list contains all its dependent courses cause then we can reduce their inDegree and then add them to the queue. Only change is while popping from q, we also add them to result[] array using result[index++] and then use index == numCourses to see if all were processed, or else we return an empty array;
+	- Status : Solved.
+
+# Bipartite graph
+
+So for this the conditions are : 
+- A graph is **bipartite** if the nodes can be partitioned into two independent sets `A` and `B` such that **every**edge in the graph connects a node in set `A` and a node in set `B`. Thus there can be no edge to connect nodes in the same set.
+
+## Problems
+-  [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/)
+	- Concepts : #BFS #Sets 
+	- Approach : We initialise the color[] array to have all zeros by default. then while iterating for all nodes, if a node is unvisited then we first iterate its neighbours and the first one we find which is visited, we use its color to mark the node the opp color. If none are visited, then its default color = 0 stays. Then we use a BFS for the nodes, and then check if their neighbours are visited then we see. if it has the same color as the current calling node and then we return false, else if its unvisited then we color it and it to the q.
+	- Status : Solved.
 
 # Dijkstra Algorithm
 Should be +ve weighted graph
@@ -175,7 +235,6 @@ Kruskal → builds MST by sorting edges (edge-centric)
 # Problems
 https://leetcode.com/problems/course-schedule-ii/description/ (BOTH 1 & 2)
 
-https://leetcode.com/problems/redundant-connection/description/
 
 https://leetcode.com/problems/cheapest-flights-within-k-stops/description/
 

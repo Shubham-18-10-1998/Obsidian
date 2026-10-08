@@ -122,3 +122,10 @@ Continuous block of memory that stores some homogenous kind of data.
 	- Concepts : #Rotation #Arrays 
 	- Approach : Since in every rotation only the edge changes other pairs remains the same, we can keep track of what elements are the first two elements in the array now, cause in the next rotation, they will be the edge elements, and also if they are equal then count will reduce by one in rotation and we have an edge pair, which will be added to subsequent rotation after the rotation in question. We do this from 0 -> n-2 and finally we also check once if count=k for the last rotation.
 	- Status : Solved
+- [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+	- Concepts : #DynamicProgramming #Two-Pointer #Monotonic-Stack 
+	- Approach : 
+		- Prefix and Suffix Solution : Because we used need the max left and max right to see what is the water that can be trapped at current index, we pre-compute them using a leftMax array and rightMax array for every index. We then use the logic result += Math.max(0, Math.min(leftMax[i], rightMax[i]) - height[i]) to see how much water can be stored at the current index. Since the current index could also be one of the walls, it could mean no water is stored above it, and hence we use the 0 condition to account for that.
+		- Two-Pointer : So we start at the edges, and we move with the idea that if my leftside <= rightSide, then leftSidfe is the limiting factor and we keep adding the water as the volume depends on the smaller boundary We switch when the boundary becomes greater than the other boundary, cause then the safe additions are from the other boundary. However if the rightSide is the limiting factor we can keep moving the rightSide as this is the limiting factor. we do this till the leftPtr < rightPtr.
+	- Learnings : Try to pinpoint the condition for the questions!!!!
+	- Status : Solved

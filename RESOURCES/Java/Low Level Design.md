@@ -111,6 +111,7 @@
 	- Try keeping as loosely coupled
 	- Use relationship based on variability. when we would want to change in runtime, then has- a relationship (aggregation). 
 	- Payment Processor cant be Abstract with Payment Model with has a cause then many repeated calls from child classes of Payment Processor to Payment model .
+	- Strategy is state-less, the entities maintain the states.
 	- Map of boolean, set of spots
 	- Two halves :
 		- First Half
