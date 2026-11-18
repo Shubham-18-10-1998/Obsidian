@@ -45,6 +45,7 @@
 		- To covert Long to int we have 
 			- .intValue()
 			- (int)(long)
+		- Also if you are using a monotonic min stack to maintain the mins, the condition should be add when value <= minStack.peekLast() so duplicates are added. also when comparing the values, use minStack.peekLast.equals(stack.peekLast()), cause this helps the issue of comparing Integer reference. 
 	- Status : Solved
 - [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
 	- Concepts : #Stack #Monotonic-Stack

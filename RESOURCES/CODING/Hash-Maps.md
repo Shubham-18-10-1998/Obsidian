@@ -674,6 +674,7 @@ The goal is:
 	- Concepts : #Hash-Table #String #BinarySearch #Design 
 	- Approach : Used a map of String, Deque<Pair<String, Integer>>. This was we have notion of min value using getFirst() of Deque, and max element using getLast(). Also in case its between them, then we use a descending iterator to get the value in between.
 	- Learnings : 
+		- We can also use record pairname(Type1 nametype1, Type2 nametype2) {} to define our own custom pair type which can then be used to add to lists or whatever we like and it also gives us getters by the pairname.nametype1() or pairname.nametype2() to get the values of the pair
 		- For Iterator i.next() returns Object. So to resolve this, we make Iterator<Pair<String, Integer>>. And then use i.next() once to get the pair we are on now. And then use the values to compare.
 	- Optimal Solution : We store the values as map<key, List<Pair<Integer, String>>. This was we can use binary search to utilise the constraint that values are strictly increasing.
 	- Status : Solved
@@ -690,6 +691,26 @@ The goal is:
 		- The equals and hashCode for List uses the contents , and reference being different doesn't matter.
 		- to convert int[] arr to List we use Arrays.stream(arr).boxed().toList() however to convert list of list to int[][] we use list.toArray(int[][]::new);  
 		- for iterating through map we use Map.Entry in triagle brackets KeyType, ValueType entry : map.entrySet() and then use entry,getKey() and entry.getValue()
+- [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)
+	- Concepts : #Memorization #DynamicProgramming #Union-Find #Hash-Table 
+	- Approach : 
+		- Memorisation Implementation : I maintain a Hash-Map to for value, index. Since the sequence can use only one value among repeated values, this wont be an issue. However because of this for every index i should see if the lengthSequence > result for this index then i use it to update my result accordingly. I also use a recursive function to update the lengthSequence for the indices by finding the next value is present or not. The memorisation here helps to avoid duplicate work.
+		- Union-Find : So we use a find, that does path compression,  and a union which adds the length sequence of tail to the lengthSequence of the parent. And every time we do that, we compare it to the result to update it. We do need the path Compression, cause it helps to establish and join sections where the current node is the child of another sequence and is about to become parent of a new sequence.
+	- Status : Solved
+- [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
+	- Concepts : #HashMaps #Hash-Table #DoublyLinkedList 
+	- Approach : 
+		- Approach 1 :  
+			- We use a doubly linked list to maintain the nodes in a list where they are accessible via an index using the index Map. We also another map to maintain valMap with val, node. Now when we remove the node, there are the cases
+				- 1 . There is only one node
+				- 2. The node being removed is the tail
+				- 3. The node being removed is a node thats in the middle.
+			- When adding the node we add it to the tail. When deleting the node we replace the current node value with the tail node value to maintain the indices of the other nodes in the list and remove the node
+		- Approach 2 :
+			- We use a arrayList as its implementation in java is similar to linked list. and hence we use a map of val, index to maintain the indices for each element and then use that to remove the elements using the index in O(1) time by replacing it with the last element (if its not the last element) and then removing the last index of list to maintain the O(1) removal. For random index we use the same approach of using a random to do random.nextInt(list.size()) to generate a random index within bounds of list to return a random value.
+	- Learnings : 
+		- Update the pointers and think of the edge cases like tail being removed etc on your own. also track the updating of connections correctly on your own.
+	- Status : Solved.
 
 Questions : 
 

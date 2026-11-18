@@ -123,5 +123,3 @@
 		- Write Heavy : The publishers puts it to all local caches for readers, and then they only have to read from their caches.
 	- PULL Strategy
 		- Read Heavy : The Users all try to fetch from origins.
-	- 
-		

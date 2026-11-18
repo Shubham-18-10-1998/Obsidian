@@ -40,6 +40,12 @@
 	- Approach : Sort both the greed and size arrays. Then use two pointer to iterate the two arrays in parallel. if greed is less that size, use the cookie or keep moving forward. Sice its sorted that cookie isn't useable in any other case too.
 	- Learnings : Even in the case of running through size array to find cookie, once we find the cookie, we have to raise index of j as now that cookie has been used.
 	- Status : Solved
+- [Minimum Cost to Acquire Required Items](https://leetcode.com/problems/minimum-cost-to-acquire-required-items/)
+	- Concepts : #Greedy 
+	- Approach : 
+		- First we see if cost1 + cost2 is greater than cost both, then accordingly we use costBoth or individual costs for the min items requirement among the two. Then we reduce the needs by the amount already supplied.
+		- Then for the subsequent needs, we use the logic of having minimum of costBoth or individual cost times the item.
+	- Status : Solved
 
 
   

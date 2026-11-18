@@ -996,3 +996,76 @@ Therefore:
 - [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 	- Solution : We maintain a min priority queue of size k, and add elements to the pq, if they are larger then the root. This way we end up with a pq that has the k largest elements of the q, and k-th largest element is the root of this heap (pq) and can be retrieved using pq.peek().
 	- Learnings : We can also achieve this using a max-heap, and then popping from it k times, but however the complexity there is O(n.log(n))  as it becomes log1 + log2 + .. logn which is approximately nlog(n) cause first we create a heap of size n, and then pop from it k times. So the totoal time complexity is O(n.log(n) + log(n).k) which is equal to O(nlog(n)). the second part added in the complexity is from removing k elements from the heap of size n. However for a min-heap implementation since our heap is max of size k the complexity is O(n.log(k))
+- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+	- Concepts : #HashMaps #Hash-Table #PriorityQueues
+	- Approach : We use the freqMap to track the frequency. Then we iterate the unique elements with their freq to populate the min-heap with the k most frequent elements.
+	- Learnings :
+		- map.computeIfPresent(nums[i], (key, freq) -> freq+1);  : This helps update the frequency.
+		- map.computeIfAbsent(nums[i], (key) -> 1); Helps populate absent element with frequency 1
+	- Status : Solved
+- [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
+	- Concepts : #PriorityQueues 
+	- Approach : The logic is that for median we need the largest of the small values and smallest of the largest values to calculate the mean in case of equal number of values in both baskets, or else it is the odd value in either basket. We use this basis to use the priority queue logic to solve the problem.
+	- Status : Solved
+- [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
+	- Concepts : #PriorityQueues 
+	- Approach : Maintain a max priority queue using the distance as organising factor, and accordingly store. By using the max heap we are maintaining the smallest k points based on distance by replacing the root with smaller value whenever encountered.
+	- Learnings :
+		- For the comparator we supply it in the constructor () brackts of PriorityQueue
+			- eg. PriorityQueue pq = new PriorityQueue ((a, b) -> (b-a)) : this is descending
+			- for the points we do PriortyQueue pq = new PriortyQueue ((a, b) -> (b.distance() - a.distance()))
+		- Also for points java has a class Point with import java.awt.Point;
+	- Status : Solved
+- [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
+	- Concepts : #Greedy #PriorityQueues 
+	- Approach : Maintain a priority queue as we need to prioritise getting the most frequent elements first. This ie because this allows to add other elements in the middle to try to reduce the idle time. Also once we get that, we maintain a common timer, which increases and also our pair structure needs a time field to know when the current pair will be available again. We use this to add it back to the pq to process again. during the idle time, we use a q to maintain the FIFO principle for the waiting tasks as they will become available to be re run in the order they were worked on.
+	- Learnings:
+		- We need the time stamp as if we keep a common one, say in the sample a,a,a,b,b,b when t = 3, a gets used again but at that b is also already there, which should become available now. for the next iteration. so having the time stamp helps to do that. also after processing a current node also we need to see if any node can be added back in the same we need to see if they are added back after an idle run.
+	- Status : Solved
+- [Reorganize String](https://leetcode.com/problems/reorganize-string/)
+	- Concepts : #Greedy  #PriorityQueues 
+	- Approach : We can use the same logic of task scheduler where the cooldown in 1, as they aren't allowed to be consecutive and use that logic to populate the string. This way if we ever come across the situation where the pq is empty() that means an idle is needed or a char has to be repeated, and hence we can return an empty string. or else we can continue to populate the string.
+	- Learnings : 
+		- We can use a StringBuilder to add char at each step to keep it as O(1) operation as otherwise as string is not mutable it becomes an O(N) job to make a new string. and in the end we can do stringBuilderInstance.toString() to convert it to a string.
+	- Staus : Solved
+- [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
+	- Concepts : #Greedy #PriorityQueues #Bucket-Sort
+	- Approach : 
+		- PriorityQueue : We can store the character ,frequency in a class and maintain a priorityQueue to keep track of most frequent one, and then keep popping and building the string with the frequency stored to reconstruct the string 
+		- Bucket Sort : Since we have a limit for the frequency, we can make a List of Character array where the index is the frequency and the list at each index contains the chars with that frequency. Then we can iterate this list in reverse to get the max frequency elements to populate the result string.
+	- Learnings : 
+		- Since the frequency has a fixed range we can use the bucket sort method here too.
+	- Status : Solved
+- [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+	- Concepts : #PriorityQueues 
+	- Approach : 
+		- Priority Queue : You can define a custom comparator to you priorityQueue using the code shown below to handle ties and then put all map entries into the Priority Queue and them pop k values to get them in the right orders.
+			- ```Java
+			  PriortiyQueue<Map.Entry<String, Integer>> pq = new PrioritQueue<>(
+				  Map.Entry.<String,Integer>
+				  comparingByValue(Comparator.reverseOrder()).
+				  thenComparing(Map.Entry.comparingByKey())
+				  );
+			  ```
+		  - Priority Queue with limit at k : We have to reverse the list comparator cause we want the result in reverse. So we keep a min heap and store the lexicographically larger word first. this helps get the smallest values rid first. 
+	- Learnings : 
+		- The Priority Queue is needed in reverse order lexicographically cause among the smaller frequency we need the candidates which have smaller lexicographical values.
+-  [IPO](https://leetcode.com/problems/ipo/)
+	- Concepts : #PriorityQueues 
+	- Approach : We use to Priority Queue, one is a min heap based on cost to be able to get all the possible candidates now allowed to be added to out affordable Priority Queue. The affordable Priority Queue is a max heap based on the profits. this way we first add all our affordable candidates to the affordable queue by using the increasing property if the min heap to add them and stop as all subsequent ones would be higher values of cost which we yet cannot afford. Also the max heap at affordable at every instant helps us to get the max value project in terms of profit in O(1) at every instance.
+	- Status : Solved
+- [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+	- Concepts : 
+	- Approach :
+		- Brute Force Approach : We do a O(N^2) approach where for each interval we see if it has an overlap with another meeting interval, and then accordingly increase the count of the rooms. Now each meeting needs a room for itself, so we keep instantiated as one.
+		- Optimised Approach : We first sort the intervals according to starting point and then ending time. We can then iterate over them and maintain a min heap of the ending times, this way we can see with how many existing meeting we are conflicting. also since the starting points are sorted, future starting points encountered are greater than given value so we can remove all ending times smaller than current start time as they would never have a conflict with another meeting as well.
+	- Learnings : 
+		- We need two heaps, one to keep track of roomAvailable, and also a time, room heap where its sorted on basis of time, and then room. this helps us to get only one room which is needed rather than freeing all rooms that might not be required.
+		- The code to sort the intervals :  
+			- ```Java
+					Arrays.sort(intervals,
+						Comparator.comparingInt((int[] a) -> a[0])
+					              .thenComparingInt(a -> a[1])
+					);
+			  ```
+	- Status : Solved
